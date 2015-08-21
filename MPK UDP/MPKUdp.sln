@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI_Lib", "..\..\PI_Lib\PI_Lib.csproj", "{A9F85E93-F95F-4CAA-A01E-402D545BD563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI_Data", "..\..\PI_Data\PI_Data.csproj", "{C81412B7-727D-42CD-91AE-D39AAE0277E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPKUDP", "MPKUDP.csproj", "{61000986-8384-4079-9698-909D025191DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPKLaunch", "..\MPKLaunch\MPKLaunch.csproj", "{A3BAB240-530C-4994-A883-B82C28E6BD9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9F85E93-F95F-4CAA-A01E-402D545BD563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F85E93-F95F-4CAA-A01E-402D545BD563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81412B7-727D-42CD-91AE-D39AAE0277E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81412B7-727D-42CD-91AE-D39AAE0277E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61000986-8384-4079-9698-909D025191DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61000986-8384-4079-9698-909D025191DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61000986-8384-4079-9698-909D025191DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61000986-8384-4079-9698-909D025191DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BAB240-530C-4994-A883-B82C28E6BD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BAB240-530C-4994-A883-B82C28E6BD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,41 @@
+2006-08-02 17:21:59,984 [5476] MPKBridge.Bridge - Host name: patrick
+2006-08-02 17:21:59,984 [5476] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-02 17:21:59,984 [5476] MPKBridge.Bridge - Started MPK UDP application
+2006-08-02 19:44:06,015 [5860] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 09
+2006-08-02 19:44:06,109 [5860] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:50:24,687 [5860] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 09
+2006-08-02 19:50:24,687 [5860] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:51:38,781 [5860] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 09
+2006-08-02 19:51:38,781 [5860] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:52:45,109 [5724] MPKBridge.Bridge - Host name: patrick
+2006-08-02 19:52:45,125 [5724] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-02 19:52:45,125 [5724] MPKBridge.Bridge - Started MPK UDP application
+2006-08-02 19:53:15,718 [3336] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 09
+2006-08-02 19:53:15,812 [3336] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:53:34,500 [3336] MPKBridge.Bridge - Msg ARRIVE 09
+2006-08-02 19:53:34,781 [3336] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:53:44,796 [3336] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 09
+2006-08-02 19:53:44,796 [3336] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:54:10,312 [3336] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:54:28,625 [3336] MPKBridge.Vehicle - Vehicle 0 confirms arrival at stop 
+2006-08-02 19:56:11,500 [3336] MPKBridge.Bridge - Problem with MSG_FROM_DRV: Object reference not set to an instance of an object.
+2006-08-02 19:56:18,343 [3336] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-02 19:56:18,343 [3336] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:56:30,312 [3336] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-02 19:56:34,718 [3336] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:57:58,921 [3336] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-02 19:57:58,921 [3336] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 19:58:03,171 [3336] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-02 19:58:05,765 [3336] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:58:34,046 [3336] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 21:45:17,562 [5764] MPKBridge.Bridge - Host name: patrick
+2006-08-02 21:45:17,578 [5764] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-02 21:45:17,578 [5764] MPKBridge.Bridge - Started MPK UDP application
+2006-08-02 21:45:35,437 [4512] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-02 21:45:35,500 [4512] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 21:45:35,500 [4512] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-02 21:45:35,765 [4512] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 21:45:55,390 [4512] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 098
+2006-08-02 21:45:55,390 [4512] MPKBridge.Vehicle - Error retrieving IFX vehicle - ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+2006-08-02 21:45:55,390 [4512] MPKBridge.Bridge - Msg DEPART 098
+2006-08-02 21:45:55,390 [4512] MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data

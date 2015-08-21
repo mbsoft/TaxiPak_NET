@@ -1,0 +1,50 @@
+2006-08-07 14:34:48,046 [5804] MPKBridge.Bridge - Host name: patrick
+2006-08-07 14:34:48,046 [5804] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-07 14:34:48,078 [5804] MPKBridge.Bridge - Started MPK UDP application
+2006-08-07 14:35:36,953 [4428] MPKBridge.Bridge - Host name: patrick
+2006-08-07 14:35:36,953 [4428] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-07 14:35:36,968 [4428] MPKBridge.Bridge - Started MPK UDP application
+2006-08-07 14:38:52,687 [5344] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-07 14:38:53,250 [5344] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-07 14:38:53,328 [5344] MPKBridge.Vehicle - Vehicle 2000 confirms arrival at stop 2739
+2006-08-07 14:46:17,750 [5344] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 098
+2006-08-07 14:46:18,078 [5344] MPKBridge.Bridge - Msg DEPART 098
+2006-08-07 14:46:18,093 [5344] MPKBridge.Vehicle - Vehicle 2000 confirms departure for stop 2739
+2006-08-07 14:46:18,109 [5344] MPKBridge.Vehicle - Received departure without arrival: Vehicle 2000 stop 2739
+2006-08-07 14:46:57,437 [5344] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-07 14:46:57,765 [5344] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-07 14:46:57,765 [5344] MPKBridge.Vehicle - Vehicle 2000 confirms arrival at stop 2739
+2006-08-07 14:47:06,125 [5344] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 098
+2006-08-07 14:47:06,437 [5344] MPKBridge.Bridge - Msg DEPART 098
+2006-08-07 14:47:06,437 [5344] MPKBridge.Vehicle - Vehicle 2000 confirms departure for stop 2739
+2006-08-07 14:47:06,437 [5344] MPKBridge.Vehicle - Veh 2000 departed stop 2739 at 20060807:144706
+2006-08-07 14:47:06,453 [5344] MPKBridge.StopVisit - RouteAccept WebRequest server http://80.64.1.251/hmpk-test-fi-support/telemark/htd
+2006-08-07 14:47:06,718 [5344] MPKBridge.StopVisit - <stop_visit> sent: <?xml version="1.0" encoding="utf-8"?><stop_visit><id>2739</id><vehicle>2000</vehicle><arrival_time>20060807:144657</arrival_time><departure_time>20060807:144706</departure_time><status>ok</status><location x="0" y="0" /></stop_visit>
+2006-08-07 14:47:07,046 [5344] MPKBridge.StopVisit - Error with server reply: The remote server returned an error: (404) Not Found.
+2006-08-07 14:47:07,046 [5344] MPKBridge.StopVisit - <html><head><title>Apache Tomcat/5.0.28 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 404 - /hmpk-test-fi-support/telemark/htd</h1><HR size="1" noshade="noshade"><p><b>type</b> Status report</p><p><b>message</b> <u>/hmpk-test-fi-support/telemark/htd</u></p><p><b>description</b> <u>The requested resource (/hmpk-test-fi-support/telemark/htd) is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/5.0.28</h3></body></html>
+2006-08-07 14:47:07,046 [5344] MPKBridge.Vehicle - Vehicle 2000 Pending Stop 4902 Next Stop 4902
+2006-08-07 14:51:54,937 [6108] MPKBridge.Bridge - Host name: patrick
+2006-08-07 14:51:54,953 [6108] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-07 14:51:54,953 [6108] MPKBridge.Bridge - Started MPK UDP application
+2006-08-07 14:55:22,953 [4980] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 099
+2006-08-07 14:55:23,453 [4980] MPKBridge.Bridge - Msg REQ_ALL 099
+2006-08-07 14:55:23,875 [4980] MPKBridge.Vehicle - Sending all stops for route 2878 vehicle 2000
+2006-08-07 14:57:10,078 [4980] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 099
+2006-08-07 14:57:10,390 [4980] MPKBridge.Bridge - Msg REQ_ALL 099
+2006-08-07 14:57:10,421 [4980] MPKBridge.Vehicle - Sending all stops for route 2878 vehicle 2000
+2006-08-07 14:59:07,937 [4980] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-07 14:59:08,296 [4980] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-07 14:59:08,328 [4980] MPKBridge.Vehicle - Vehicle 2000 confirms arrival at stop 4902
+2006-08-07 14:59:08,359 [4980] MPKBridge.StopVisit - RouteAccept WebRequest server http://80.64.1.251/hmpk-test-fi-support/telemark/htd
+2006-08-07 14:59:08,671 [4980] MPKBridge.StopVisit - <stop_visit> sent: <?xml version="1.0" encoding="utf-8"?><stop_visit><id>4902</id><vehicle>2000</vehicle><arrival_time>20060807:145908</arrival_time><departure_time>20060807:145908</departure_time><status>ok</status><location x="0" y="0" /></stop_visit>
+2006-08-07 14:59:10,718 [4980] MPKBridge.StopVisit - Error with server reply: The remote server returned an error: (404) Not Found.
+2006-08-07 14:59:10,718 [4980] MPKBridge.StopVisit - <html><head><title>Apache Tomcat/5.0.28 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 404 - /hmpk-test-fi-support/telemark/htd</h1><HR size="1" noshade="noshade"><p><b>type</b> Status report</p><p><b>message</b> <u>/hmpk-test-fi-support/telemark/htd</u></p><p><b>description</b> <u>The requested resource (/hmpk-test-fi-support/telemark/htd) is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/5.0.28</h3></body></html>
+2006-08-07 15:03:30,343 [4980] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 097
+2006-08-07 15:03:30,656 [4980] MPKBridge.Bridge - Msg ARRIVE 097
+2006-08-07 15:03:30,687 [4980] MPKBridge.Vehicle - Vehicle 2000 confirms arrival at stop 2739
+2006-08-07 15:03:36,500 [4980] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 099
+2006-08-07 15:03:36,828 [4980] MPKBridge.Bridge - Msg REQ_ALL 099
+2006-08-07 15:03:36,828 [4980] MPKBridge.Vehicle - Sending all stops for route 2878 vehicle 2000
+2006-08-07 15:06:20,187 [4980] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 099
+2006-08-07 15:06:20,515 [4980] MPKBridge.Bridge - Msg REQ_ALL 099
+2006-08-07 15:06:20,546 [4980] MPKBridge.Vehicle - Sending all stops for route 2878 vehicle 2000

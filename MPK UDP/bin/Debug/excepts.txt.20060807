@@ -1,0 +1,3 @@
+2006-08-07 14:46:18,109 [5344] ERROR MPKBridge.Vehicle - Received departure without arrival: Vehicle 2000 stop 2739
+2006-08-07 14:47:07,046 [5344] ERROR MPKBridge.StopVisit - Error with server reply: The remote server returned an error: (404) Not Found.
+2006-08-07 14:59:10,718 [4980] ERROR MPKBridge.StopVisit - Error with server reply: The remote server returned an error: (404) Not Found.

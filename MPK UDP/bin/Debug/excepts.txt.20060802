@@ -1,0 +1,8 @@
+2006-08-02 19:53:34,781 [3336] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:54:10,312 [3336] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:56:11,500 [3336] ERROR MPKBridge.Bridge - Problem with MSG_FROM_DRV: Object reference not set to an instance of an object.
+2006-08-02 19:56:34,718 [3336] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:58:05,765 [3336] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 19:58:34,046 [3336] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 21:45:35,765 [4512] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data
+2006-08-02 21:45:55,390 [4512] ERROR MPKBridge.Vehicle - Error retrieving Vehicle 0 stop data

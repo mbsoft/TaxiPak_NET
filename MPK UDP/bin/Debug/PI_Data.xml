@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PI_Data</name>
+    </assembly>
+    <members>
+        <member name="T:PI_Data.Except">
+            <summary>
+            Summary description for Except.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+2006-08-09 14:19:40,023 [4876] MPKBridge.Bridge - Host name: patrick
+2006-08-09 14:19:40,023 [4876] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-09 14:19:40,054 [4876] MPKBridge.Bridge - Started MPK UDP application
+2006-08-09 14:22:07,695 [4768] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 099
+2006-08-09 14:22:15,804 [4768] MPKBridge.Bridge - Msg REQ_ALL 099
+2006-08-09 14:22:33,773 [4768] MPKBridge.Vehicle - Sending all stops for route 85174 vehicle 2000
+2006-08-09 14:23:05,991 [5992] MPKBridge.Bridge - Host name: patrick
+2006-08-09 14:23:06,007 [5992] MPKBridge.Bridge - IP Addr 0: 192.168.1.101 
+2006-08-09 14:23:06,007 [5992] MPKBridge.Bridge - Started MPK UDP application
+2006-08-09 14:23:23,585 [4808] MPKBridge.Bridge - MSG_FROM_DRV: 007D0 099
+2006-08-09 14:23:26,273 [4808] MPKBridge.Bridge - Msg REQ_ALL 099
+2006-08-09 14:23:26,382 [4808] MPKBridge.Vehicle - Sending all stops for route 85174 vehicle 2000

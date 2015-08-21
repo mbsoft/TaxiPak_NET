@@ -1,0 +1,27 @@
+2007-01-23 09:24:46,940 [2184] MPKBridge.Bridge - Host name: patrick
+2007-01-23 09:24:46,955 [2184] MPKBridge.Bridge - IP Addr 0: 192.168.1.102 
+2007-01-23 09:24:46,986 [2184] MPKBridge.Bridge - Started MPK UDP application
+2007-01-23 09:33:12,049 [5012] MPKBridge.Bridge - MSG_FROM_DRV: 00002 097
+2007-01-23 09:33:13,768 [5012] MPKBridge.Bridge - Msg ARRIVE 097
+2007-01-23 09:33:14,096 [5012] MPKBridge.Vehicle - Vehicle 1257 confirms arrival at stop 4065
+2007-01-23 09:33:57,377 [5012] MPKBridge.Bridge - MSG_FROM_DRV: 00002 099
+2007-01-23 09:34:02,861 [5012] MPKBridge.Bridge - Msg REQ_ALL 099
+2007-01-23 09:34:34,174 [5012] MPKBridge.Vehicle - Sending all stops for route 2534 vehicle 1257
+2007-01-23 09:39:31,486 [1600] MPKBridge.Bridge - Host name: patrick
+2007-01-23 09:39:31,486 [1600] MPKBridge.Bridge - IP Addr 0: 192.168.1.102 
+2007-01-23 09:39:31,502 [1600] MPKBridge.Bridge - Started MPK UDP application
+2007-01-23 09:39:38,377 [5152] MPKBridge.Bridge - MSG_FROM_DRV: 00002 099
+2007-01-23 09:39:41,471 [5152] MPKBridge.Bridge - Msg REQ_ALL 099
+2007-01-23 09:39:41,643 [5152] MPKBridge.Vehicle - Sending all stops for route 2534 vehicle 1257
+2007-01-23 09:40:07,846 [5152] MPKBridge.Bridge - MSG_FROM_DRV: 00002 099
+2007-01-23 09:40:10,518 [5152] MPKBridge.Bridge - Msg REQ_ALL 099
+2007-01-23 09:40:40,221 [5152] MPKBridge.Vehicle - Sending all stops for route 2534 vehicle 1257
+2007-01-23 09:42:16,815 [5152] MPKBridge.Bridge - MSG_FROM_DRV: 00002 099
+2007-01-23 09:42:17,143 [5152] MPKBridge.Bridge - Msg REQ_ALL 099
+2007-01-23 09:45:40,768 [5152] MPKBridge.Vehicle - Sending all stops for route 2534 vehicle 1257
+2007-01-23 09:47:30,236 [5152] MPKBridge.Bridge - MSG_FROM_DRV: 00002 099
+2007-01-23 09:47:30,596 [5152] MPKBridge.Bridge - Msg REQ_ALL 099
+2007-01-23 09:48:27,158 [5152] MPKBridge.Vehicle - Sending all stops for route 3852 vehicle 1257
+2007-01-23 09:49:29,111 [5152] MPKBridge.Bridge - MSG_FROM_DRV: 00002 099
+2007-01-23 09:49:29,440 [5152] MPKBridge.Bridge - Msg REQ_ALL 099
+2007-01-23 09:49:29,440 [5152] MPKBridge.Vehicle - Sending all stops for route 3852 vehicle 1257
