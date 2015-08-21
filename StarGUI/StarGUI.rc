@@ -1,0 +1,304 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)\r\n"
+    "LANGUAGE 12, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\StarGUI.rc2""  // ressources non modifiées par Microsoft Visual C++\r\n"
+    "#include ""l.FRA\\afxres.rc""      // Composants standard\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\StarGUI.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_STARGUI_DIALOG DIALOGEX 0, 0, 515, 628
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "StarGUI"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "172.27.30.20",IDC_WING1,"Button",BS_AUTORADIOBUTTON,21,14,66,10
+    CONTROL         "172.16.1.131",IDC_WING2,"Button",BS_AUTORADIOBUTTON,112,14,61,10
+    CONTROL         "",IDC_TAB,"SysTabControl32",TCS_BUTTONS,17,44,197,13
+    PUSHBUTTON      "OFF",IDC_SON,375,12,21,13
+    EDITTEXT        IDC_LAT,36,71,44,12,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_LONG,113,71,44,12,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDR,36,120,120,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "GO",IDC_GMAP,157,120,16,12
+    EDITTEXT        IDC_CHF,205,72,29,12,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MDT,260,72,29,12,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_IMEI,205,86,84,12,ES_CENTER | ES_AUTOHSCROLL
+    PUSHBUTTON      "HIA",IDC_HIA,293,72,31,26
+    PUSHBUTTON      "[RESET]",IDC_KILLMDT,325,72,31,26
+    PUSHBUTTON      "Bascule",IDC_BASCULE_OPER,419,81,42,17
+    EDITTEXT        IDC_DELAI_BASCULE,474,65,24,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "SignIn",IDC_SIGNIN,19,163,42,17
+    PUSHBUTTON      "SignOff",IDC_SIGNOFF,66,163,42,17
+    EDITTEXT        IDC_NBZONE,144,166,22,12,ES_CENTER | ES_AUTOHSCROLL
+    PUSHBUTTON      "BookIn",IDC_BOOKIN,173,163,34,17
+    PUSHBUTTON      "EnDir.",IDC_ENDIR,213,163,32,17
+    PUSHBUTTON      "BookOff",IDC_BOOKOFF,251,163,31,17
+    PUSHBUTTON      "Pause",IDC_PAUSE,289,163,29,17
+    PUSHBUTTON      "Rang",IDC_RANG,325,163,29,17
+    PUSHBUTTON      "Bascule",IDC_BASCULE,358,163,29,17
+    PUSHBUTTON      "Accept",IDC_ACPTNEW,17,205,42,17
+    PUSHBUTTON      "Sans réponse",IDC_NOACPT,124,205,51,17
+    EDITTEXT        IDC_NBDELAI,203,207,16,12,ES_CENTER | ES_AUTOHSCROLL
+    PUSHBUTTON      "Delai",IDC_DELAIS,225,205,37,17
+    PUSHBUTTON      "SurPlace",IDC_SURPLACE,19,289,41,17
+    PUSHBUTTON      "Charge",IDC_CHARGENEW,84,289,42,17
+    PUSHBUTTON      "NonCharge",IDC_NONCHARGE,133,289,42,17
+    PUSHBUTTON      "Oui",IDC_OUI,19,312,25,17
+    PUSHBUTTON      "Non",IDC_NON,52,312,25,17
+    PUSHBUTTON      "Abandon",IDC_ABANDON,84,312,42,17
+    PUSHBUTTON      "Stat. Imp.",IDC_STATION_IMP,133,312,42,17
+    PUSHBUTTON      "OFF",IDC_METEROFF,347,204,42,18
+    PUSHBUTTON      "ON",IDC_METERON,294,204,42,18
+    EDITTEXT        IDC_NSS,34,347,85,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CO,34,361,47,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SEQ,34,374,47,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "AMELI",IDC_AMELI,86,362,33,24
+    PUSHBUTTON      "Test RLV_CPAM",IDC_RLVCPAM,34,388,85,14
+    EDITTEXT        IDC_RLV_MONTANT,52,422,32,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RLV_PLAFOND,125,422,32,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_RLV_ROUTE_FLAG,195,420,88,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_RLV_ZONE_FLAG,287,420,95,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_NUM_COURSE,52,441,48,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RLV_ZONE,125,441,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RLV_ATT,195,441,22,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Relevé",IDC_RELEVE,261,440,54,14
+    GROUPBOX        "Inscription",IDC_STATIC,119,147,277,43
+    GROUPBOX        "Offre Course",IDC_STATIC,10,192,170,37
+    GROUPBOX        "Delai",IDC_STATIC,196,192,74,37
+    GROUPBOX        "Statut Course",IDC_STATIC,10,278,176,59
+    GROUPBOX        "HIA",IDC_STATIC,180,63,182,41
+    EDITTEXT        IDC_LOG,10,525,497,96,ES_MULTILINE | ES_UPPERCASE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    EDITTEXT        IDC_COURSE,195,237,187,135,ES_MULTILINE | ES_UPPERCASE | ES_AUTOVSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_STATUS,192,392,194,12,ES_CENTER | ES_MULTILINE | ES_UPPERCASE | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_MSG,192,378,194,12,ES_CENTER | ES_MULTILINE | ES_UPPERCASE | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Long",IDC_STATIC,94,73,15,10
+    LTEXT           "Lat",IDC_STATIC,16,73,15,8
+    LTEXT           "Chf",IDC_STATIC,187,75,15,8
+    LTEXT           "IMEI",IDC_STATIC,187,87,15,8
+    LTEXT           "MDT",IDC_STATIC,242,74,15,8
+    GROUPBOX        "Enregistrement",IDC_STATIC,10,147,104,43
+    GROUPBOX        "GPS",IDC_STATIC,10,63,167,76
+    GROUPBOX        "Meter",IDC_STATIC,282,193,114,36
+    GROUPBOX        "CPAM",IDC_STATIC,10,338,115,67
+    LTEXT           "NSS",IDC_STATIC,18,349,15,8
+    LTEXT           "CO",IDC_STATIC,19,363,11,8
+    LTEXT           "Addr",IDC_STATIC,16,121,15,9
+    LTEXT           "SEQ",IDC_STATIC,17,375,14,11
+    GROUPBOX        "Son",IDC_STATIC,367,2,35,28
+    GROUPBOX        "MDT",IDC_STATIC,10,33,351,28
+    LTEXT           "Zone",IDC_STATIC,126,168,18,8
+    GROUPBOX        "Relevé",IDC_STATIC,10,408,378,52
+    LTEXT           "Montant (cents)",IDC_STATIC,17,422,30,17
+    LTEXT           "Zone",IDC_STATIC,107,444,17,8
+    LTEXT           "Attente (mn)",IDC_STATIC,154,444,41,8
+    LTEXT           "Course n°",IDC_STATIC,17,444,33,8
+    GROUPBOX        "WiNG",IDC_STATIC,10,2,351,28
+    GROUPBOX        "Multi GPRS",IDC_GROUP_MULTIGPRS,367,33,140,71
+    LTEXT           "Opérateur GSM",IDC_STATIC,375,49,53,9
+    EDITTEXT        IDC_OPER_GSM,430,46,68,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Délai reconnexion (sec)",IDC_STATIC,376,68,94,9
+    LTEXT           "Plafond",IDC_STATIC,93,425,28,8
+    GROUPBOX        "Enchères",IDC_STATIC,404,148,81,185
+    CTEXT           "Délai de RAZ (sec)",IDC_STATIC,406,163,47,19
+    EDITTEXT        IDC_DELAI_ENCHERES,455,163,22,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "",IDC_BID1,422,188,50,17
+    PUSHBUTTON      "",IDC_BID2,422,212,50,17
+    PUSHBUTTON      "",IDC_BID3,422,236,50,17
+    PUSHBUTTON      "",IDC_BID4,422,260,50,17
+    PUSHBUTTON      "",IDC_BID5,422,284,50,17
+    PUSHBUTTON      "",IDC_BID6,422,308,50,17
+    LTEXT           "Version",IDC_STATIC,224,46,24,8
+    EDITTEXT        IDC_VERSION,251,44,51,14,ES_AUTOHSCROLL
+    GROUPBOX        "Automate",IDC_STATIC,10,230,177,46
+    LTEXT           "Approche",IDC_STATIC,18,243,38,8
+    EDITTEXT        IDC_AUTO_APPROCHE,57,240,23,14,ES_AUTOHSCROLL
+    LTEXT           "Sur place",IDC_STATIC,93,243,30,8
+    EDITTEXT        IDC_AUTO_SURPLACE,129,240,20,14,ES_AUTOHSCROLL
+    LTEXT           "Charge",IDC_STATIC,17,259,24,8
+    EDITTEXT        IDC_AUTO_CHARGE,57,257,23,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Run",IDC_AUTO_RUN,99,258,50,14
+    LTEXT           "RAD type",IDC_STATIC,308,47,32,8
+    EDITTEXT        IDC_RAD_TYPE,339,44,18,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Connecter",IDC_CONNECT,252,11,50,14
+    GROUPBOX        "Compagnon",IDC_STATIC,403,344,82,63
+    PUSHBUTTON      "Sortie Véh.",IDC_COMP_SORTIE,420,359,50,17
+    PUSHBUTTON      "Retour Véh.",IDC_COMP_RETOUR,420,381,50,17
+    GROUPBOX        "STAT DIST",IDC_STATIC,10,465,485,50
+    LTEXT           "Message",IDC_STATIC,17,483,31,9
+    EDITTEXT        IDC_EDT_STAT_DIST,54,480,357,28,ES_MULTILINE | ES_UPPERCASE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "STAT DIST",IDC_BUT_STAT_DIST,428,480,54,14
+    PUSHBUTTON      "Rejet",IDC_BUT_REJET,71,205,42,17
+    LTEXT           "Version 4.3",IDC_STATIC,445,15,51,8
+    LTEXT           "Date",IDC_STATIC,16,89,17,8
+    EDITTEXT        IDC_EDT_GPS_DATE,36,87,44,12,ES_AUTOHSCROLL
+    LTEXT           "Heure",IDC_STATIC,94,89,22,8
+    EDITTEXT        IDC_EDT_GPS_HEURE,113,87,44,12,ES_AUTOHSCROLL
+    CONTROL         "Check1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,103,9,9
+    LTEXT           "Date / heure GPS",IDC_STATIC,51,104,68,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040c04e4"
+        BEGIN
+            VALUE "CompanyName", "TG7"
+            VALUE "FileDescription", "StarGUI"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "StarGUI.exe"
+            VALUE "LegalCopyright", "(c) TG7. Tous droits réservés."
+            VALUE "OriginalFilename", "StarGUI.exe"
+            VALUE "ProductName", "StarGUI"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x40c, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_STARGUI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 507
+        BOTTOMMARGIN, 621
+        HORZGUIDE, 292
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "L'initialisation des sockets Windows a échoué."
+END
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE 12, 1
+#pragma code_page(1252)
+#include "res\StarGUI.rc2"  // ressources non modifiées par Microsoft Visual C++
+#include "l.FRA\afxres.rc"      // Composants standard
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
