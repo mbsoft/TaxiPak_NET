@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TMark" targetNamespace="http://tempuri.org/TMark.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://tempuri.org/TMark.xsd" xmlns:mstns="http://tempuri.org/TMark.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:codegen="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="TMark" msdata:IsDataSet="true">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="Route" codegen:typedName="Route" codegen:typedPlural="Routes">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="route_id" type="xs:integer" msdata:AutoIncrement="true" />
+                            <xs:element name="mpk_ref" type="xs:string" minOccurs="1" />
+                            <xs:element name="length" type="xs:integer" minOccurs="0" />
+                            <xs:element name="duration" type="xs:integer" minOccurs="0" />
+                            <xs:element name="mandatory" type="xs:string" minOccurs="0" />
+                            <xs:element name="price_group" type="xs:integer" minOccurs="0" />
+                            <xs:element name="assign_before" type="xs:dateTime" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                    <xs:key name="RouteKey1">
+                        <xs:selector xpath="." />
+                        <xs:field xpath="mstns:mpk_ref" />
+                    </xs:key>
+                </xs:element>
+                <xs:element name="Passenger" codegen:typedName="Passenger" codegen:typedPlural="Passengers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="pass_id" type="xs:integer" msdata:AutoIncrement="true" />
+                            <xs:element name="mpk_ref" type="xs:string" />
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="phone" type="xs:string" />
+                            <xs:element name="promised_pickup" type="xs:dateTime" />
+                            <xs:element name="extra_people" type="xs:integer" />
+                            <xs:element name="pickup_note" type="xs:string" />
+                            <xs:element name="dropoff_note" type="xs:string" />
+                            <xs:element name="recipient_phone" type="xs:string" />
+                            <xs:element name="pickup_id" type="xs:integer" />
+                            <xs:element name="dropoff_id" type="xs:integer" />
+                        </xs:sequence>
+                    </xs:complexType>
+                    <xs:key name="PassengerKey1" msdata:PrimaryKey="true">
+                        <xs:selector xpath="." />
+                        <xs:field xpath="mstns:pass_id" />
+                    </xs:key>
+                    <xs:key name="PassMpkKey">
+                        <xs:selector xpath="." />
+                        <xs:field xpath="mstns:mpk_ref" />
+                    </xs:key>
+                    <xs:keyref name="RoutePassenger" refer="RouteKey1">
+                        <xs:selector xpath="." />
+                        <xs:field xpath="@mpk_ref" />
+                    </xs:keyref>
+                </xs:element>
+                <xs:element name="Stop">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="stop_id" type="xs:string" minOccurs="0" msdata:AutoIncrement="true" />
+                            <xs:element name="mpk_ref" type="xs:string" minOccurs="0" />
+                            <xs:element name="addr_street" type="xs:string" minOccurs="0" />
+                            <xs:element name="addr_nbr" type="xs:int" minOccurs="0" />
+                            <xs:element name="addr_note" type="xs:string" minOccurs="0" />
+                            <xs:element name="loc_gpsx" type="xs:long" minOccurs="0" />
+                            <xs:element name="loc_gpsy" type="xs:long" minOccurs="0" />
+                            <xs:element name="eta" type="xs:dateTime" minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+        <xs:key name="StopPrimaryKey" msdata:PrimaryKey="true">
+            <xs:selector xpath=".//mstns:Stop" />
+            <xs:field xpath="mstns:stop_id" />
+        </xs:key>
+        <xs:key name="StopKey1">
+            <xs:selector xpath=".//mstns:Stop" />
+            <xs:field xpath="mstns:mpk_ref" />
+        </xs:key>
+        <xs:keyref name="RouteStop" refer="RouteKey1">
+            <xs:selector xpath=".//mstns:Stop" />
+            <xs:field xpath="mstns:mpk_ref" />
+        </xs:keyref>
+    </xs:element>
+</xs:schema>

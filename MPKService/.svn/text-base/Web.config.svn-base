@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+  	<add key="ConnStringSQL" value="Data Source=C:\inetpub\wwwroot\MPKService\Data\mpk2.dbs;Version=3;" />
+	<add key="ConnString" value="Host=172.16.1.66;Service=6032;Server=mads_se2;User ID=net_book;password=Mickey;Database=/usr/taxi/mads" />
+	<add key="ConnString1" value="Host=192.168.1.120;Service=6032;Server=mads_se;User ID=net_book;password=Mickey;Database=/usr/taxi/mads" />
+	<add key="ConnString2" value="server=(local);Database=DMF;Trusted_Connection=yes;" /> 
+	<add key="ConnString3" value="server=172.16.1.66;Database=MPK;uid=jwelch;pwd=TaxiP" />
+	<add key="PIServer1" value="172.16.1.65" />
+	<add key="PIServer" value="192.168.1.120" />
+	<add key="PIPort" value="3000" />
+	<add key="TPak_dispatch" value="YES" />
+	<add key="Vehicle_Attr" value="EEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEE"/>
+	<add key="TimeOut_default" value="8" />
+	<add key="TimeOut_wheelchair" value="8" />
+
+			<!-- To enable internal log4net logging specify the 
+		     following appSettings key -->
+		     
+		<add key="log4net.Internal.Debug" value="true"/>
+  </appSettings>
+   
+	
+  <system.web>
+
+    <!--  DYNAMIC DEBUG COMPILATION
+          Set compilation debug="true" to enable ASPX debugging.  Otherwise, setting this value to
+          false will improve runtime performance of this application. 
+          Set compilation debug="true" to insert debugging symbols (.pdb information)
+          into the compiled page. Because this creates a larger file that executes
+          more slowly, you should set this value to true only when debugging and to
+          false at all other times. For more information, refer to the documentation about
+          debugging ASP.NET files.
+    -->
+    <compilation 
+         defaultLanguage="c#"
+         debug="true"
+    />
+    <!--  CUSTOM ERROR MESSAGES
+          Set customErrors mode="On" or "RemoteOnly" to enable custom error messages, "Off" to disable. 
+          Add <error> tags for each of the errors you want to handle.
+
+          "On" Always display custom (friendly) messages.
+          "Off" Always display detailed ASP.NET error information.
+          "RemoteOnly" Display custom (friendly) messages only to users not running 
+           on the local Web server. This setting is recommended for security purposes, so 
+           that you do not display application detail information to remote clients.
+    -->
+    <customErrors 
+    mode="Off" 
+    /> 
+
+    <!--  AUTHENTICATION 
+          This section sets the authentication policies of the application. Possible modes are "Windows", 
+          "Forms", "Passport" and "None"
+
+          "None" No authentication is performed. 
+          "Windows" IIS performs authentication (Basic, Digest, or Integrated Windows) according to 
+           its settings for the application. Anonymous access must be disabled in IIS. 
+          "Forms" You provide a custom form (Web page) for users to enter their credentials, and then 
+           you authenticate them in your application. A user credential token is stored in a cookie.
+          "Passport" Authentication is performed via a centralized authentication service provided
+           by Microsoft that offers a single logon and core profile services for member sites.
+    -->
+    <authentication mode="Windows" /> 
+
+	<!--  AUTHORIZATION 
+          This section sets the authorization policies of the application. You can allow or deny access
+          to application resources by user or role. Wildcards: "*" mean everyone, "?" means anonymous 
+          (unauthenticated) users.
+    -->
+
+    <authorization>
+        <allow users="*" /> <!-- Allow all users -->
+            <!--  <allow     users="[comma separated list of users]"
+                             roles="[comma separated list of roles]"/>
+                  <deny      users="[comma separated list of users]"
+                             roles="[comma separated list of roles]"/>
+            -->
+    </authorization>
+
+    <!--  APPLICATION-LEVEL TRACE LOGGING
+          Application-level tracing enables trace log output for every page within an application. 
+          Set trace enabled="true" to enable application trace logging.  If pageOutput="true", the
+          trace information will be displayed at the bottom of each page.  Otherwise, you can view the 
+          application trace log by browsing the "trace.axd" page from your web application
+          root. 
+    -->
+    <trace
+        enabled="false"
+        requestLimit="10"
+        pageOutput="false"
+        traceMode="SortByTime"
+		localOnly="true"
+    />
+
+    <!--  SESSION STATE SETTINGS
+          By default ASP.NET uses cookies to identify which requests belong to a particular session. 
+          If cookies are not available, a session can be tracked by adding a session identifier to the URL. 
+          To disable cookies, set sessionState cookieless="true".
+    -->
+    <sessionState 
+            mode="InProc"
+            stateConnectionString="tcpip=127.0.0.1:42424"
+            sqlConnectionString="data source=127.0.0.1;Trusted_Connection=yes"
+            cookieless="false" 
+            timeout="20" 
+    />
+
+    <!--  GLOBALIZATION
+          This section sets the globalization settings of the application. 
+    -->
+    <globalization 
+            requestEncoding="utf-8" 
+            responseEncoding="utf-8" 
+   />
+   
+ </system.web>
+
+</configuration>

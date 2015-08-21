@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MPK_HTD" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    <xs:element name="envelope" msdata:IsDataSet="true">
+        <xs:annotation>
+            <xs:documentation>Root element for all MPK Messages</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="error" type="errorType" minOccurs="0" />
+                <xs:element name="ping" type="pingType" minOccurs="0" />
+                <xs:element name="location_request" type="locationRequest" minOccurs="0" msdata:IsDataSet="true" />
+                <xs:element name="route" type="routeType" minOccurs="0" />
+                <xs:element name="md5" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="errorType">
+        <xs:sequence>
+            <xs:element name="msgtype" type="msgType" />
+            <xs:element name="message" type="xs:string" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="msgType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ping" />
+            <xs:enumeration value="location_request" />
+            <xs:enumeration value="route" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="pingType">
+        <xs:annotation>
+            <xs:documentation>Ping message types that validate connection</xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+    <xs:complexType name="locationRequest">
+        <xs:annotation>
+            <xs:documentation>locationRequest messages allow client to request vehicle GPS positions. Note: multiple vehicle numbers can be queried in a single message</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="vehicle" type="xs:string" minOccurs="1" maxOccurs="unbounded">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="routeType">
+        <xs:annotation>
+            <xs:documentation>routeType carries detailed route information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="passenger" type="passengerType" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="stop" type="stopType" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="estimated_length" type="estlengthType" minOccurs="1" maxOccurs="1" />
+            <xs:element name="mandatory" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="previous_route" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="capacity_need" type="capacityType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="price_group" type="xs:integer" minOccurs="0" maxOccurs="1" />
+            <xs:element name="assign_before" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required" />
+        <xs:attribute name="version" type="xs:string" use="required" />
+        <xs:attribute name="status" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="passengerType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0" />
+            <xs:element name="phone" type="xs:string" minOccurs="0" />
+            <xs:element name="promised_pickup" type="xs:dateTime" minOccurs="0" />
+            <xs:element name="extra_people" type="xs:string" minOccurs="0" />
+            <xs:element name="pickup_note" type="xs:string" minOccurs="0" />
+            <xs:element name="dropoff_note" type="xs:string" minOccurs="0" />
+            <xs:element name="pickup" type="xs:string" minOccurs="1" />
+            <xs:element name="dropoff" type="xs:string" minOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="stopType">
+        <xs:sequence>
+            <xs:element name="address" type="addressType" minOccurs="1" />
+            <xs:element name="location" type="locationType" minOccurs="0" />
+            <xs:element name="estimated_arrival" type="xs:dateTime" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="addressType">
+        <xs:sequence>
+            <xs:element name="street_name" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="street_nbr" type="xs:string" minOccurs="1" />
+            <xs:element name="street_nbr_suffix" type="xs:string" minOccurs="0" />
+            <xs:element name="apartment" type="xs:string" minOccurs="0" />
+            <xs:element name="city" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="locationType">
+        <xs:attribute name="x" type="xs:integer" use="required" />
+        <xs:attribute name="y" type="xs:integer" use="required" />
+    </xs:complexType>
+    <xs:complexType name="estlengthType">
+        <xs:attribute name="meters" type="xs:integer" use="required" />
+        <xs:attribute name="minutes" type="xs:integer" use="required" />
+    </xs:complexType>
+    <xs:complexType name="capacityType">
+        <xs:sequence>
+            <xs:element name="passengers" type="xs:integer" minOccurs="0" maxOccurs="1" />
+            <xs:element name="wheelchairs" type="xs:integer" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

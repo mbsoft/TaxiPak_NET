@@ -1,0 +1,55 @@
+using System;
+using System.Configuration;
+using System.Text;
+using System.Collections;
+using System.Net;
+using System.Threading;
+using PI_Lib;
+using IBM.Data.Informix;
+using log4net;
+using log4net.Config;
+
+namespace MPKService
+{
+	/// <summary>
+	/// Summary description for CallMonitor.
+	/// </summary>
+	public class CallMonitor : IDisposable
+	{
+		public int call_nbr;
+		private int veh_nbr;
+		public string route_id;
+		private static readonly ILog log = LogManager.GetLogger(typeof(CallMonitor));
+
+		private DateTime startTime;
+
+		public CallMonitor(int x, string rte)
+		{
+			call_nbr = x;
+			route_id = rte;
+			veh_nbr = 0;
+			startTime = DateTime.Now;
+
+		}
+		
+		~CallMonitor()
+		{
+			Dispose(false);
+		}
+
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if ( disposing )
+			{
+			}
+		}
+
+	
+	}
+}
