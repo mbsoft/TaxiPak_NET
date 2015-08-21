@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AccountData" targetNamespace="http://tempuri.org/AccountData.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/AccountData.xsd" xmlns:mstns="http://tempuri.org/AccountData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="Account">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+            <xs:attribute name="ac_fleet" type="xs:string" />
+            <xs:attribute name="ac_nbr" type="xs:string" />
+            <xs:attribute name="ac_name" type="xs:string" />
+            <xs:attribute name="ac_str_nbr" type="xs:int" />
+            <xs:attribute name="ac_str_suf" type="xs:byte" />
+            <xs:attribute name="ac_pre_dir" type="xs:string" />
+            <xs:attribute name="ac_str_name" type="xs:string" />
+            <xs:attribute name="ac_str_type" type="xs:string" />
+            <xs:attribute name="ac_post_dir" type="xs:string" />
+            <xs:attribute name="ac_apt_room" type="xs:string" />
+            <xs:attribute name="ac_city" type="xs:string" />
+            <xs:attribute name="ac_state" type="xs:string" />
+            <xs:attribute name="ac_zip" type="xs:string" />
+            <xs:attribute name="ac_zip_suf" type="xs:string" />
+            <xs:attribute name="ac_phone" type="xs:string" />
+            <xs:attribute name="ac_phone_area" type="xs:string" />
+            <xs:attribute name="ac_phone_ext" type="xs:string" />
+            <xs:attribute name="ac_phone_contact" type="xs:string" />
+            <xs:attribute name="ac_attention" type="xs:string" />
+            <xs:attribute name="ac_comment" type="xs:string" />
+            <xs:attribute name="ac_header_1" type="xs:string" />
+            <xs:attribute name="ac_header_2" type="xs:string" />
+            <xs:attribute name="ac_header_3" type="xs:string" />
+            <xs:attribute name="ac_header_4" type="xs:string" />
+            <xs:attribute name="ac_driver_msg" type="xs:string" />
+            <xs:attribute name="ac_priority" type="xs:short" />
+            <xs:attribute name="ac_show_pckup_adr" type="xs:byte" />
+            <xs:attribute name="ac_phone_number" type="xs:string" />
+            <xs:attribute name="ac_drv_attr" type="xs:string" />
+            <xs:attribute name="ac_veh_attr" type="xs:string" />
+            <xs:attribute name="ac_autobook_enable" type="xs:string" />
+            <xs:attribute name="ac_acc_chrg_enable" type="xs:byte" />
+            <xs:attribute name="ac_factor_val" type="xs:float" />
+            <xs:attribute name="ac_extra_val" type="xs:short" />
+            <xs:attribute name="ac_cash_account" type="xs:byte" />
+            <xs:attribute name="ac_password" type="xs:string" />
+        </xs:complexType>
+        <xs:key name="accountKey1">
+            <xs:selector xpath="." />
+            <xs:field xpath="mstns:ac_nbr" />
+        </xs:key>
+        <xs:key name="AccountKey2" msdata:PrimaryKey="true">
+            <xs:selector xpath="." />
+            <xs:field xpath="@ac_fleet" />
+            <xs:field xpath="@ac_nbr" />
+        </xs:key>
+    </xs:element>
+    <xs:element name="ACAD">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+            <xs:attribute name="acad_fleet" type="xs:string" />
+            <xs:attribute name="acad_account" type="xs:string" />
+            <xs:attribute name="acad_index" type="xs:int" />
+            <xs:attribute name="acad_st_nbr" type="xs:int" />
+            <xs:attribute name="acad_st_suffix" type="xs:byte" />
+            <xs:attribute name="acad_st_pre_dir" type="xs:string" />
+            <xs:attribute name="acad_st_name" type="xs:string" />
+            <xs:attribute name="acad_st_type" type="xs:string" />
+            <xs:attribute name="acad_st_post_dir" type="xs:string" />
+            <xs:attribute name="acad_apartment" type="xs:string" />
+            <xs:attribute name="acad_city_name" type="xs:string" />
+            <xs:attribute name="acad_zip_code" type="xs:string" />
+            <xs:attribute name="acad_phone_nbr" type="xs:string" />
+            <xs:attribute name="acad_phone_ext" type="xs:string" />
+            <xs:attribute name="acad_comment" type="xs:string" />
+            <xs:attribute name="acad_pos_x" type="xs:string" />
+            <xs:attribute name="acad_pos_y" type="xs:string" />
+            <xs:attribute name="acad_zn_nbr" type="xs:string" />
+            <xs:attribute name="acad_zn_desc" type="xs:string" />
+        </xs:complexType>
+        <xs:key name="ACADKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath="." />
+            <xs:field xpath="@acad_fleet" />
+            <xs:field xpath="@acad_account" />
+            <xs:field xpath="@acad_index" />
+        </xs:key>
+        <xs:keyref name="AccountACAD" refer="AccountKey2">
+            <xs:selector xpath="." />
+            <xs:field xpath="@acad_fleet" />
+            <xs:field xpath="@acad_account" />
+        </xs:keyref>
+        <xs:key name="ACADKey2">
+            <xs:selector xpath="." />
+            <xs:field xpath="@acad_index" />
+        </xs:key>
+    </xs:element>
+    <xs:element name="INDV">
+        <xs:complexType>
+            <xs:sequence />
+            <xs:attribute name="indv_fleet" type="xs:string" />
+            <xs:attribute name="indv_account" type="xs:string" />
+            <xs:attribute name="indv_passenger" type="xs:string" />
+            <xs:attribute name="indv_subacct" type="xs:string" />
+            <xs:attribute name="indv_can_charge" type="xs:byte" />
+            <xs:attribute name="indv_index" type="xs:int" />
+        </xs:complexType>
+        <xs:key name="INDVKey1" msdata:PrimaryKey="true">
+            <xs:selector xpath="." />
+            <xs:field xpath="@indv_fleet" />
+            <xs:field xpath="@indv_account" />
+        </xs:key>
+        <xs:keyref name="AccountINDV" refer="AccountKey2">
+            <xs:selector xpath="." />
+            <xs:field xpath="@indv_fleet" />
+            <xs:field xpath="@indv_account" />
+        </xs:keyref>
+    </xs:element>
+    <xs:element name="POSITION">
+        <xs:complexType>
+            <xs:sequence />
+            <xs:attribute name="pos_x" type="xs:string" />
+            <xs:attribute name="pos_y" type="xs:string" />
+            <xs:attribute name="pos_acad_index" type="xs:int" />
+        </xs:complexType>
+        <xs:key name="POSITIONKey1">
+            <xs:selector xpath="." />
+            <xs:field xpath="@pos_acad_index" />
+        </xs:key>
+        <xs:keyref name="relACADPOSITION" refer="ACADKey2">
+            <xs:selector xpath="." />
+            <xs:field xpath="@pos_acad_index" />
+        </xs:keyref>
+    </xs:element>
+</xs:schema>

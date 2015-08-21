@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="CallData" targetNamespace="http://tempuri.org/CallData.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/CallData.xsd" xmlns:mstns="http://tempuri.org/CallData.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="CallData" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="CALLS">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="fleet" type="xs:byte" />
+						<xs:attribute name="call_number" type="xs:int" />
+						<xs:attribute name="priority" type="xs:short" />
+						<xs:attribute name="call_group" type="xs:int" />
+						<xs:attribute name="call_position" type="xs:byte" />
+						<xs:attribute name="number_of_calls" type="xs:byte" />
+						<xs:attribute name="number_of_vehicles" type="xs:byte" />
+						<xs:attribute name="call_type" type="xs:string" />
+						<xs:attribute name="from_addr_street" type="xs:string" />
+						<xs:attribute name="from_addr_number" type="xs:int" />
+						<xs:attribute name="from_addr_suffix" type="xs:byte" />
+						<xs:attribute name="from_addr_apart" type="xs:string" />
+						<xs:attribute name="from_addr_city" type="xs:string" />
+						<xs:attribute name="from_addr_zone" type="xs:short" />
+						<xs:attribute name="from_addr_cmnt" type="xs:string" />
+						<xs:attribute name="passenger" type="xs:string" />
+						<xs:attribute name="phone" type="xs:string" />
+						<xs:attribute name="car_number" type="xs:short" />
+						<xs:attribute name="car_attrib" type="xs:string" />
+						<xs:attribute name="driver_id" type="xs:string" />
+						<xs:attribute name="driver_attrib" type="xs:string" />
+						<xs:attribute name="creation_date" type="xs:string" />
+						<xs:attribute name="creation_time" type="xs:string" />
+						<xs:attribute name="due_date" type="xs:string" />
+						<xs:attribute name="due_time" type="xs:string" />
+						<xs:attribute name="pickup_time" type="xs:string" />
+						<xs:attribute name="close_time" type="xs:string" />
+						<xs:attribute name="call_comment" type="xs:string" />
+						<xs:attribute name="call_status" type="xs:short" />
+						<xs:attribute name="gpsx" type="xs:string" />
+						<xs:attribute name="gpsy" type="xs:string" />
+						<xs:attribute name="status_text" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CALLH">
+					<xs:complexType>
+						<xs:sequence />
+						<xs:attribute name="event_desc" type="xs:string" />
+						<xs:attribute name="status_date" type="xs:string" />
+						<xs:attribute name="status_time" type="xs:string" />
+						<xs:attribute name="veh_nbr" type="xs:short" />
+						<xs:attribute name="drv_id" type="xs:int" />
+						<xs:attribute name="user_id" type="xs:short" />
+						<xs:attribute name="action_taken" type="xs:string" />
+						<xs:attribute name="action_date" type="xs:string" />
+						<xs:attribute name="action_time" type="xs:string" />
+						<xs:attribute name="ch_call_number" type="xs:int" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ORDERDETAIL">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="call_number" type="xs:int" />
+						<xs:attribute name="from_addr_street" type="xs:string" />
+						<xs:attribute name="from_addr_number" type="xs:int" />
+						<xs:attribute name="from_addr_apart" type="xs:string" />
+						<xs:attribute name="from_addr_city" type="xs:string" />
+						<xs:attribute name="passenger" type="xs:string" />
+						<xs:attribute name="event_desc" type="xs:string" />
+						<xs:attribute name="status_date" type="xs:string" />
+						<xs:attribute name="status_time" type="xs:string" />
+						<xs:attribute name="veh_nbr" type="xs:short" />
+						<xs:attribute name="due_date" type="xs:string" />
+						<xs:attribute name="due_time" type="xs:string" />
+						<xs:attribute name="status" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="CallDataKey1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:CALLS" />
+			<xs:field xpath="@mstns:call_number" />
+		</xs:key>
+	</xs:element>
+</xs:schema>

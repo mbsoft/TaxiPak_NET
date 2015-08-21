@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ZoneData" targetNamespace="http://tempuri.org/ZoneData.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/ZoneData.xsd" xmlns:mstns="http://tempuri.org/ZoneData.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="ZoneData" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="ZONE">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="zn_fleet" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_superzn_detail" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_nbr" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_superzn_nbr" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_desc" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_type" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_bid_allowed" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_pckup_seals" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_pckup_lead_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_stand_time_from" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_stand_time_to" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_avl_call_q_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_enr_post_allow" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_main_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_main_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev2_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev3_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev4_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev5_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev6_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev7_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev8_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr1" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr2" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr3" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr4" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr5" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr6" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr7" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_zone_nbr8" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev2_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev3_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev4_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev5_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev7_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev8_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev1_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev2_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev3_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev4_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev5_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev6_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev7_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_lev8_rej_penlty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_max_time_calls" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_mdt_screen" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_enr_post_lead" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_break_duration" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_accept_duration" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_avail_taxi" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_gps_lat" type="xs:float" minOccurs="0" />
+							<xs:element name="zn_gps_long" type="xs:float" minOccurs="0" />
+							<xs:element name="zn_gps_radius" type="xs:int" minOccurs="0" />
+							<xs:element name="zn_gps_dist" type="xs:int" minOccurs="0" />
+							<xs:element name="zn_match_alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_tc_look_ahead" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_tc_rest_int" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_ns_short" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_emerg_range" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_stand_tele" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_inhttp_timer" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_cbook_time" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_lev6_zone_nbr6" type="xs:short" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BACKUPS">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="zn_level" type="xs:short" minOccurs="0" />
+							<xs:element name="alg" type="xs:string" minOccurs="0" />
+							<xs:element name="zone1" type="xs:short" minOccurs="0" />
+							<xs:element name="zone2" type="xs:short" minOccurs="0" />
+							<xs:element name="zone3" type="xs:short" minOccurs="0" />
+							<xs:element name="zone4" type="xs:short" minOccurs="0" />
+							<xs:element name="zone5" type="xs:short" minOccurs="0" />
+							<xs:element name="zone6" type="xs:short" minOccurs="0" />
+							<xs:element name="zone7" type="xs:short" minOccurs="0" />
+							<xs:element name="zone8" type="xs:short" minOccurs="0" />
+							<xs:element name="exclusive_time" type="xs:short" minOccurs="0" />
+							<xs:element name="reject_penalty" type="xs:string" minOccurs="0" />
+							<xs:element name="zn_nbr" type="xs:short" minOccurs="0" />
+							<xs:element name="zn_fleet" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ZoneInfo">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="fleet" type="xs:string" minOccurs="0" />
+							<xs:element name="zone_nbr" type="xs:string" minOccurs="0" />
+							<xs:element name="numtaxisprimary" type="xs:string" minOccurs="0" />
+							<xs:element name="numtaxisbackup" type="xs:string" minOccurs="0" />
+							<xs:element name="veh_attr" type="xs:string" minOccurs="0" />
+							<xs:element name="drv_attr" type="xs:string" minOccurs="0" />
+							<xs:element name="unassigned" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="zonetrans">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="t800" type="xs:string" minOccurs="0" />
+							<xs:element name="tpak" type="xs:short" minOccurs="0" />
+							<xs:element name="comment" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="ZoneDataKey1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:ZONE" />
+			<xs:field xpath="mstns:zn_fleet" />
+			<xs:field xpath="mstns:zn_nbr" />
+		</xs:key>
+	</xs:element>
+</xs:schema>

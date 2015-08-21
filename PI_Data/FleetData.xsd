@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="FleetData" targetNamespace="http://tempuri.org/FleetData.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/FleetData.xsd" xmlns:mstns="http://tempuri.org/FleetData.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="FleetData" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Fleet">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:byte" minOccurs="0" />
+							<xs:element name="match_algorithm" type="xs:byte" minOccurs="0" />
+							<xs:element name="nbr" type="xs:short" minOccurs="0" />
+							<xs:element name="name" type="xs:string" minOccurs="0" />
+							<xs:element name="drv_regular_pri" type="xs:byte" minOccurs="0" />
+							<xs:element name="drv_no_show_pri" type="xs:byte" minOccurs="0" />
+							<xs:element name="drv_cancel_pri" type="xs:byte" minOccurs="0" />
+							<xs:element name="local_calls_dur" type="xs:short" minOccurs="0" />
+							<xs:element name="call_offer_proc" type="xs:byte" minOccurs="0" />
+							<xs:element name="no_acpt_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev1_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="main_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev2_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev3_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev4_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev5_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev6_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev7_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev8_rej_penalt" type="xs:byte" minOccurs="0" />
+							<xs:element name="bid_action" type="xs:byte" minOccurs="0" />
+							<xs:element name="lev1_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev2_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev3_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev4_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev5_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev6_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev7_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="lev8_excl_time" type="xs:short" minOccurs="0" />
+							<xs:element name="no_personal" type="xs:byte" minOccurs="0" />
+							<xs:element name="no_seals" type="xs:byte" minOccurs="0" />
+							<xs:element name="auto_stand_flag" type="xs:byte" minOccurs="0" />
+							<xs:element name="no_show_action" type="xs:byte" minOccurs="0" />
+							<xs:element name="cancel_action" type="xs:byte" minOccurs="0" />
+							<xs:element name="enr_post_action" type="xs:byte" minOccurs="0" />
+							<xs:element name="hold_line_flag" type="xs:byte" minOccurs="0" />
+							<xs:element name="zone_backup_lev" type="xs:byte" minOccurs="0" />
+							<xs:element name="avl_call_q_time" type="xs:short" minOccurs="0" />
+							<xs:element name="veh_inqry_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="cal_assign_info" type="xs:byte" minOccurs="0" />
+							<xs:element name="zone_info_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="post_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="cond_post_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="call_accept_per" type="xs:short" minOccurs="0" />
+							<xs:element name="break_duration" type="xs:short" minOccurs="0" />
+							<xs:element name="bid_duration" type="xs:short" minOccurs="0" />
+							<xs:element name="enr_post_lead" type="xs:short" minOccurs="0" />
+							<xs:element name="short_meter_dur" type="xs:short" minOccurs="0" />
+							<xs:element name="late_meter" type="xs:short" minOccurs="0" />
+							<xs:element name="max_rej_count" type="xs:short" minOccurs="0" />
+							<xs:element name="pers_lead_tm" type="xs:short" minOccurs="0" />
+							<xs:element name="no_acpt_penalty" type="xs:short" minOccurs="0" />
+							<xs:element name="when_enr_post" type="xs:byte" minOccurs="0" />
+							<xs:element name="zone_stat_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="max_nbr_drv_atr" type="xs:short" minOccurs="0" />
+							<xs:element name="drv_msg_approve" type="xs:byte" minOccurs="0" />
+							<xs:element name="max_vehs_call" type="xs:short" minOccurs="0" />
+							<xs:element name="future_call_max" type="xs:float" minOccurs="0" />
+							<xs:element name="future_call_min" type="xs:short" minOccurs="0" />
+							<xs:element name="pass_rate_calc" type="xs:byte" minOccurs="0" />
+							<xs:element name="dlv_rate_calc" type="xs:byte" minOccurs="0" />
+							<xs:element name="subsc_review" type="xs:byte" minOccurs="0" />
+							<xs:element name="greeting_line" type="xs:byte" minOccurs="0" />
+							<xs:element name="city_default" type="xs:string" minOccurs="0" />
+							<xs:element name="phone_area_def" type="xs:string" minOccurs="0" />
+							<xs:element name="time_calls_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="msg_rpt_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="audt_trail_port" type="xs:string" minOccurs="0" />
+							<xs:element name="comments" type="xs:string" minOccurs="0" />
+							<xs:element name="pass_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="del_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="charge_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="calls_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="subsc_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="typex_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="wake_up_pri_def" type="xs:short" minOccurs="0" />
+							<xs:element name="high_rookie_pri" type="xs:short" minOccurs="0" />
+							<xs:element name="call_type_def" type="xs:byte" minOccurs="0" />
+							<xs:element name="met_pass_call" type="xs:byte" minOccurs="0" />
+							<xs:element name="met_del_call" type="xs:byte" minOccurs="0" />
+							<xs:element name="met_typex_call" type="xs:byte" minOccurs="0" />
+							<xs:element name="hist_search_def" type="xs:short" minOccurs="0" />
+							<xs:element name="time_call_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="time_call_max" type="xs:short" minOccurs="0" />
+							<xs:element name="range_limit1" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text1" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit2" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text2" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit3" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text3" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit4" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text4" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit5" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text5" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit6" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text6" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit7" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text7" type="xs:string" minOccurs="0" />
+							<xs:element name="range_limit8" type="xs:short" minOccurs="0" />
+							<xs:element name="estimate_text8" type="xs:string" minOccurs="0" />
+							<xs:element name="def_est_text" type="xs:string" minOccurs="0" />
+							<xs:element name="max_nbr_veh_atr" type="xs:short" minOccurs="0" />
+							<xs:element name="active" type="xs:byte" minOccurs="0" />
+							<xs:element name="wakeup_lead_tm" type="xs:short" minOccurs="0" />
+							<xs:element name="mssg_rcpt_tmout" type="xs:short" minOccurs="0" />
+							<xs:element name="restrict_tc_ena" type="xs:short" minOccurs="0" />
+							<xs:element name="time_period_len" type="xs:short" minOccurs="0" />
+							<xs:element name="mssg_rcpt_retry" type="xs:short" minOccurs="0" />
+							<xs:element name="inact_retry_int" type="xs:short" minOccurs="0" />
+							<xs:element name="inact_time_out" type="xs:short" minOccurs="0" />
+							<xs:element name="cal_offer_info" type="xs:byte" minOccurs="0" />
+							<xs:element name="approach_tariff" type="xs:byte" minOccurs="0" />
+							<xs:element name="num_levels_comp" type="xs:short" minOccurs="0" />
+							<xs:element name="stats_comp_freq" type="xs:short" minOccurs="0" />
+							<xs:element name="handle_sys_call" type="xs:short" minOccurs="0" />
+							<xs:element name="switch_4" type="xs:short" minOccurs="0" />
+							<xs:element name="nak_offer_penal" type="xs:byte" minOccurs="0" />
+							<xs:element name="auto_flag_time" type="xs:short" minOccurs="0" />
+							<xs:element name="time_int_req" type="xs:short" minOccurs="0" />
+							<xs:element name="lead_supp" type="xs:short" minOccurs="0" />
+							<xs:element name="flat_distance" type="xs:byte" minOccurs="0" />
+							<xs:element name="gps_state" type="xs:byte" minOccurs="0" />
+							<xs:element name="gps_time" type="xs:short" minOccurs="0" />
+							<xs:element name="gps_dist" type="xs:int" minOccurs="0" />
+							<xs:element name="send_call_type" type="xs:byte" minOccurs="0" />
+							<xs:element name="auto_reject_tim" type="xs:short" minOccurs="0" />
+							<xs:element name="m_action_time" type="xs:short" minOccurs="0" />
+							<xs:element name="m_action_retry" type="xs:short" minOccurs="0" />
+							<xs:element name="maction_penal" type="xs:short" minOccurs="0" />
+							<xs:element name="canx_to_moff" type="xs:short" minOccurs="0" />
+							<xs:element name="gps_max_x" type="xs:float" minOccurs="0" />
+							<xs:element name="gps_min_x" type="xs:float" minOccurs="0" />
+							<xs:element name="gps_max_y" type="xs:float" minOccurs="0" />
+							<xs:element name="gps_min_y" type="xs:float" minOccurs="0" />
+							<xs:element name="gps_coord_sys" type="xs:short" minOccurs="0" />
+							<xs:element name="gps_book" type="xs:byte" minOccurs="0" />
+							<xs:element name="tc_rest_int" type="xs:short" minOccurs="0" />
+							<xs:element name="ns_short" type="xs:short" minOccurs="0" />
+							<xs:element name="emerg_range" type="xs:short" minOccurs="0" />
+							<xs:element name="enroute_break" type="xs:byte" minOccurs="0" />
+							<xs:element name="ilink_active" type="xs:byte" minOccurs="0" />
+							<xs:element name="ilink_timeout" type="xs:short" minOccurs="0" />
+							<xs:element name="unload_load" type="xs:byte" minOccurs="0" />
+							<xs:element name="cbook_time" type="xs:short" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="FleetDataKey1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Fleet" />
+			<xs:field xpath="mstns:nbr" />
+		</xs:key>
+	</xs:element>
+</xs:schema>

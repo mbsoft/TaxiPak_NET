@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="LocalityData" targetNamespace="http://tempuri.org/LocalityData.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/LocalityData.xsd" xmlns:mstns="http://tempuri.org/LocalityData.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="LocalityData" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Locality">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="lo_code" type="xs:string" minOccurs="0" />
+							<xs:element name="lo_act_city_code" type="xs:string" minOccurs="0" />
+							<xs:element name="lo_subzone" type="xs:string" minOccurs="0" />
+							<xs:element name="lo_zip" type="xs:int" minOccurs="0" />
+							<xs:element name="lo_full_name" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
