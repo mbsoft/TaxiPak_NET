@@ -1,0 +1,170 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>MessageTypes Enumeration</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">TaxiPak PI Library</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">MessageTypes Enumeration</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Supported PI message types for interacting with the TaxiPak PI server. </p>
+      <div class="syntax">
+        <div>public enum MessageTypes</div>
+      </div>
+      <h4 class="dtH4">Members</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Member Name</th>
+            <th width="50%">Description</th>
+          </tr>
+<tr valign="top"><td><b>PI_UNKNOWN_ORDER</b></td><td> Sent when an unknown order is received by PI </td></tr>
+<tr valign="top"><td><b>PI_ZONE_ADDRESS</b></td><td> Zone the incoming address delivered by the PI client </td></tr>
+<tr valign="top"><td><b>PI_DISPATCH_CALL</b></td><td> Dispatch the call through PI </td></tr>
+<tr valign="top"><td><b>PI_CANCEL_CALL</b></td><td> Cancel an existing order </td></tr>
+<tr valign="top"><td><b>PI_GET_CALL</b></td><td> Retrieve all the details for an existing call </td></tr>
+<tr valign="top"><td><b>PI_GET_CAR</b></td><td> Used to retrieve the car that is assigned to a specific call. If no car is connected to the call, the car_number field is set to zero(0) </td></tr>
+<tr valign="top"><td><b>PI_GET_EXCEPTIONS</b></td><td> This function finds exception of a given exception type. When using the PI_GET_EXCEPTIONS the answer will be number_of_exceptions followed by a number of EXCEPTION structures equivalent to the number of exceptions of the requested type. If there are no exceptions of the type, the number_of_exceptions is set to zero(0) and there will not be any EXCEPTION data structures </td></tr>
+<tr valign="top"><td><b>PI_REPORT_EXCEPTIONS</b></td><td> This function is used to tell PI to report on certain exceptions as they are generated in TaxiPak. The on_off_switch is a boolean 0x01=0n 0x00=off (CHAR size 1 byte) telling whether to report the exception or not. The 0x00 and 0x01 following PI_OK indicates whether there is an exception of the designated type in TaxiPak. </td></tr>
+<tr valign="top"><td><b>PI_ACCEPT_EXCEPTION</b></td><td> Used to approve/disapprove an exception. Field approval is either ‘Y/J/K’=approved or ‘N/N/E’=disapproved </td></tr>
+<tr valign="top"><td><b>PI_SEND_MESSAGE</b></td><td> Sends a message to vehicles,drivers,users,dispatchers based on contents of the MESSAGE data structure </td></tr>
+<tr valign="top"><td><b>PI_GET_MESSAGE</b></td><td> Retrieves the contents of a message from the TaxiPak message table </td></tr>
+<tr valign="top"><td><b>PI_ALIVE</b></td><td> Function used to determine the state of PI </td></tr>
+<tr valign="top"><td><b>PI_QUIT</b></td><td> Function used to ask PI whether it is OK to quit the connection </td></tr>
+<tr valign="top"><td><b>PI_DISP_EXT_CALL</b></td><td> Dispatch an order from the FTJ/Planet system. The PI must set the FTJ/Planet order number in the ftj field (FTJ=0 non-ftj call, FTJ &gt; 0 FTJ call) </td></tr>
+<tr valign="top"><td><b>PI_GENERATE_EXCEPTION</b></td><td> Generates exceptions that are specific to the Samplan system (FTJ). Exception class = ‘1’ (Samplan) with exception type in the range 29-43 </td></tr>
+<tr valign="top"><td><b>PI_DISPATCH_ACCOUNT_CALL</b></td><td> Generate an order in TaxiPak based on the address/passenger details associated with the provided account number. </td></tr>
+<tr valign="top"><td><b>PI_ZONE_INFO</b></td><td> Used to get zone information from the TaxiPak system. Client queries TaxiPak based on fleet, zone number, and attributes and is returned information on number of trips, vehicles etc. </td></tr>
+<tr valign="top"><td><b>PI_PRE_BOOK_INFO</b></td><td> Retrieves information on the availability of a time call booking for a given fleet, zone, and date </td></tr>
+<tr valign="top"><td><b>PI_LINE_MGR_ORDER</b></td><td> Provides interface for caller identification and callback order requests </td></tr>
+<tr valign="top"><td><b>PI_RQST_GPS</b></td><td> Client requests a GPS polling message sent to the requested taxi </td></tr></table>
+      </div>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="PI_Lib.html">PI_Lib</a>
+      </p>
+      <p>
+        <b>Assembly: </b>PI_Lib (in PI_Lib.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="PI_Lib.html">PI_Lib Namespace</a>
+      </p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="MessageTypes enumeration">
+        </param>
+        <param name="Keyword" value="PI_Lib.MessageTypes enumeration">
+        </param>
+        <param name="Keyword" value="PI_UNKNOWN_ORDER enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_UNKNOWN_ORDER enumeration member">
+        </param>
+        <param name="Keyword" value="PI_ZONE_ADDRESS enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_ZONE_ADDRESS enumeration member">
+        </param>
+        <param name="Keyword" value="PI_DISPATCH_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_DISPATCH_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_CANCEL_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_CANCEL_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_GET_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_GET_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_GET_CAR enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_GET_CAR enumeration member">
+        </param>
+        <param name="Keyword" value="PI_GET_EXCEPTIONS enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_GET_EXCEPTIONS enumeration member">
+        </param>
+        <param name="Keyword" value="PI_REPORT_EXCEPTIONS enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_REPORT_EXCEPTIONS enumeration member">
+        </param>
+        <param name="Keyword" value="PI_ACCEPT_EXCEPTION enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_ACCEPT_EXCEPTION enumeration member">
+        </param>
+        <param name="Keyword" value="PI_SEND_MESSAGE enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_SEND_MESSAGE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_GET_MESSAGE enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_GET_MESSAGE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_ALIVE enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_ALIVE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_QUIT enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_QUIT enumeration member">
+        </param>
+        <param name="Keyword" value="PI_DISP_EXT_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_DISP_EXT_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_GENERATE_EXCEPTION enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_GENERATE_EXCEPTION enumeration member">
+        </param>
+        <param name="Keyword" value="PI_DISPATCH_ACCOUNT_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_DISPATCH_ACCOUNT_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_ZONE_INFO enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_ZONE_INFO enumeration member">
+        </param>
+        <param name="Keyword" value="PI_PRE_BOOK_INFO enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_PRE_BOOK_INFO enumeration member">
+        </param>
+        <param name="Keyword" value="PI_LINE_MGR_ORDER enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_LINE_MGR_ORDER enumeration member">
+        </param>
+        <param name="Keyword" value="PI_RQST_GPS enumeration member">
+        </param>
+        <param name="Keyword" value="MessageTypes.PI_RQST_GPS enumeration member">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:jwelch@mbsoft.com?subject=TaxiPak%20PI%20Library%20Documentation%20Feedback:%20MessageTypes%20Enumeration">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a>MobileSoft Consulting, Inc. 2005/2006</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

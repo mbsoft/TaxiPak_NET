@@ -1,0 +1,83 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>PIClient Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">TaxiPak PI Library</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">PIClient Class</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p>A derived class providing access to TCP client communications with a designated PI server.</p>
+      <p>For a list of all members of this type, see <a href="PI_Lib.PIClientMembers.html">PIClient Members</a>.</p>
+      <p>
+        <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">System.Object</a>
+        <br />   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemNetSocketsTcpClientClassTopic.htm">System.Net.Sockets.TcpClient</a><br />      <b>PI_Lib.PIClient</b></p>
+      <div class="syntax">
+        <div>public class PIClient<b> : <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemNetSocketsTcpClientClassTopic.htm">TcpClient</a></b></div>
+      </div>
+      <H4 class="dtH4">Thread Safety</H4>
+      <P>Public static (<b>Shared</b> in Visual Basic) members of this type are 
+				safe for multithreaded operations. Instance members are <b>not</b> guaranteed to be 
+				thread-safe.</P>
+      <h4 class="dtH4">Example</h4>
+      <p>This sample shows how to use this class to establish a connection to the TaxiPak PI server <pre class="code">class MyPIClient
+{
+    public MyPIClient
+    {
+        // connect using a specified host/port combination
+        PIClient m_client = new PIClient( "192.168.1.120", 3000 );
+        m_client.Close();
+        
+        // connect using settings from the application configuration
+        // with a setting for 'PIServer' and 'PIPort' in the App.config file
+        PIClient m_client = new PIClient();
+        m_client.Close();
+    }
+}
+</pre></p>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="PI_Lib.html">PI_Lib</a>
+      </p>
+      <p>
+        <b>Assembly: </b>PI_Lib (in PI_Lib.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="PI_Lib.PIClientMembers.html">PIClient Members</a> | <a href="PI_Lib.html">PI_Lib Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="PIClient class, about PIClient class">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:jwelch@mbsoft.com?subject=TaxiPak%20PI%20Library%20Documentation%20Feedback:%20PIClient%20Class">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a>MobileSoft Consulting, Inc. 2005/2006</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

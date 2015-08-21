@@ -1,0 +1,62 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>PI_DISPATCH_ACCOUNT_CALL.Deserialize Method</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">TaxiPak PI Library</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">PI_DISPATCH_ACCOUNT_CALL.Deserialize Method </h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> This method will extract a confirmation call number corresponding to the database record number (CALLS table) that resulted from successful entry of the account order. Upon successful execution, the confirmation number is accessed using the call_number property of the class. </p>
+      <div class="syntax">public <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemVoidClassTopic.htm">void</a> Deserialize(<br />   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemByteClassTopic.htm">byte[]</a> <i>src</i><br />);</div>
+      <h4 class="dtH4">Parameters</h4>
+      <dl>
+        <dt>
+          <i>src</i>
+        </dt>
+        <dd>The byte array that contains the data packet returned by the PI server.</dd>
+      </dl>
+      <h4 class="dtH4">Remarks</h4>
+      <p>If the data buffer received from the PI server contains an indication of an error, an ApplicationException is thrown that should be caught by the application. The exception message will contain the specific enumeration error code.</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="PI_Lib.PI_DISPATCH_ACCOUNT_CALL.html">PI_DISPATCH_ACCOUNT_CALL Class</a> | <a href="PI_Lib.html">PI_Lib Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="Deserialize method">
+        </param>
+        <param name="Keyword" value="Deserialize method, PI_DISPATCH_ACCOUNT_CALL class">
+        </param>
+        <param name="Keyword" value="PI_DISPATCH_ACCOUNT_CALL.Deserialize method">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:jwelch@mbsoft.com?subject=TaxiPak%20PI%20Library%20Documentation%20Feedback:%20PI_DISPATCH_ACCOUNT_CALL.Deserialize Method ">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a>MobileSoft Consulting, Inc. 2005/2006</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

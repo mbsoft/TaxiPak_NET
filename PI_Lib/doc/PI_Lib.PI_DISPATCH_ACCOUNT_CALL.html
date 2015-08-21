@@ -1,0 +1,134 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>PI_DISPATCH_ACCOUNT_CALL Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">TaxiPak PI Library</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">PI_DISPATCH_ACCOUNT_CALL Class</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> PI_DISPATCH_ACCOUNT_CALL allows a client to enter an order in TaxiPak according to the address settings for a particular account. Optionally, the client can also specify the pickup/destination address for the order rather than using the default pickup address that is stored in the account's record.</p>
+      <p>For a list of all members of this type, see <a href="PI_Lib.PI_DISPATCH_ACCOUNT_CALLMembers.html">PI_DISPATCH_ACCOUNT_CALL Members</a>.</p>
+      <p>
+        <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">System.Object</a>
+        <br />   <b>PI_Lib.PI_DISPATCH_ACCOUNT_CALL</b></p>
+      <div class="syntax">
+        <div>public class PI_DISPATCH_ACCOUNT_CALL</div>
+      </div>
+      <H4 class="dtH4">Thread Safety</H4>
+      <P>Public static (<b>Shared</b> in Visual Basic) members of this type are 
+				safe for multithreaded operations. Instance members are <b>not</b> guaranteed to be 
+				thread-safe.</P>
+      <h4 class="dtH4">Example</h4>
+      <p>
+        <pre class="code">
+          <span class="lang">[C#]
+</span>try 
+{
+     myPISocket = new PIClient();
+}
+catch (System.Net.Sockets.SocketException ex)
+{
+     MessageBox.Show(ex.Message, "Error connecting to TaxiPak",
+     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+     return;
+}
+
+myPISocket.SetType(MessageTypes.PI_DISPATCH_ACCOUNT_CALL);
+PI_DISPATCH_ACCOUNT_CALL myAcctCall = new new PI_DISPATCH_ACCOUNT_CALL();
+
+// Generate an immediate trip dispatched to the address associated with this account
+myAcctCall.fleet = Char.Parse("H"); // Taxi Helsinki fleet
+myAcctCall.acct_nbr = txtAccountID.Text.ToCharArray();
+
+myPISocket.sendBuf = myAcctCall.ToByteArray();
+try
+{
+    myPISocket.SendMessage();
+}
+catch (System.Net.Sockets.SocketException ex)
+{
+     MessageBox.Show(ex.Message, "Socket error",
+     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+     return;
+}
+
+// Successful 'send' to PI server. Now get the reply from the server
+try
+{
+     myPISocket.ReceiveMessage();
+}
+catch (System.Net.Sockets.SocketException ex)
+{
+     MessageBox.Show(ex.Message, "Socket error",
+     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+     return;
+}
+catch (System.ApplicationException ex)
+{
+     MessageBox.Show(ex.Message, "Application error",
+     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+     return;
+}
+
+try
+{
+     myAcctCall.Deserialize( myPISocket.recvBuf );
+     lblConfirm.Text = "Order confirmed with ref #" + myAcctCall.call_number.ToString();
+}
+catch (ApplicationException ex)
+{
+     MessageBox.Show(ex.Message, "Failed order",
+     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+     return;
+}
+
+myPISocket.CloseMe();
+</pre>
+      </p>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="PI_Lib.html">PI_Lib</a>
+      </p>
+      <p>
+        <b>Assembly: </b>PI_Lib (in PI_Lib.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="PI_Lib.PI_DISPATCH_ACCOUNT_CALLMembers.html">PI_DISPATCH_ACCOUNT_CALL Members</a> | <a href="PI_Lib.html">PI_Lib Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="PI_DISPATCH_ACCOUNT_CALL class, about PI_DISPATCH_ACCOUNT_CALL class">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:jwelch@mbsoft.com?subject=TaxiPak%20PI%20Library%20Documentation%20Feedback:%20PI_DISPATCH_ACCOUNT_CALL%20Class">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a>MobileSoft Consulting, Inc. 2005/2006</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

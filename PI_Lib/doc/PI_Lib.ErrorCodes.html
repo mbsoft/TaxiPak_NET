@@ -1,0 +1,250 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>ErrorCodes Enumeration</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">TaxiPak PI Library</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">ErrorCodes Enumeration</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Enumeration of all the possible codes returned by the PI server when a request is made by the client. </p>
+      <div class="syntax">
+        <div>public enum ErrorCodes</div>
+      </div>
+      <h4 class="dtH4">Members</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Member Name</th>
+            <th width="50%">Description</th>
+          </tr>
+<tr valign="top"><td><b>PI_OK</b></td><td> No failure <blockquote class="dtBlock"><b>Note</b>   Applies to all message types</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_LEN</b></td><td> The data block has an illegal length <blockquote class="dtBlock"><b>Note</b>   Applies to all message types</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_VALUE</b></td><td> Unable to get values from the data-block <blockquote class="dtBlock"><b>Note</b>   Applies to all message types</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_FLEET</b></td><td> Fleet is outside the range A-H <blockquote class="dtBlock"><b>Note</b>   Applies to all message types</blockquote></td></tr>
+<tr valign="top"><td><b>PI_DB_OP_FAIL</b></td><td> database operation fails – closing down <blockquote class="dtBlock"><b>Note</b>   Applies to all message types</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_PRIO</b></td><td> trip’s priority is outside 6-63 <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_VEH</b></td><td> # of vehicles not within 1-9 <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_CALL_1</b></td><td> incorrect call type:Pass,Deliv,Extra,Wakeup <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_CALL_2</b></td><td> incorrect call-type: Autobooker <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_CALL_3</b></td><td> incorrect call-type: Timecall, subscription <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_CALL_4</b></td><td> incorrect call-type: Charge <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_CALL_5</b></td><td> incorrect call-type: Multi <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_ADDR_STR</b></td><td> invalid streetname <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_ADDR_NUM</b></td><td> invalid street number <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_CITY</b></td><td> invalid city abbreviation <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_VEH_ATTRIB</b></td><td> one of the vehicle attributes does not match Y/N <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_DRV_ATTRIB</b></td><td> one of the driver attributes does not match Y/N <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_DUE_TIME</b></td><td> due time for future call is too old <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_ZONE</b></td><td> pickup zone is not valid <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ZONE_ADDRESS and PI_DISPATCH_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_NO_CALL</b></td><td> Call does not exist <blockquote class="dtBlock"><b>Note</b>   Applies to PI_CANCEL_CALL, PI_GET_CALL, and PI_GET_CAR</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_EXCEPTION_TYPE</b></td><td> exception-type does not exist <blockquote class="dtBlock"><b>Note</b>   Applies to PI_GET_EXCEPTIONS</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_EXCEPTION_MSG</b></td><td> exception-message-number is not valid <blockquote class="dtBlock"><b>Note</b>   Applies to PI_GET_EXCEPTIONS</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_EXCEPTION</b></td><td> exception does not exist <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ACCEPT_EXCEPTION</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_APPROVAL</b></td><td> incorrect approval type (Y/N) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_ACCEPT_EXCEPTION</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_GROUP</b></td><td> receiver-group doesn’t exist <blockquote class="dtBlock"><b>Note</b>   Applies to PI_SEND_MESSAGE</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_RECEIVER</b></td><td> receiver doesn’t exist <blockquote class="dtBlock"><b>Note</b>   Applies to PI_SEND_MESSAGE</blockquote></td></tr>
+<tr valign="top"><td><b>PI_NOT_RECEIVED</b></td><td> message was not received <blockquote class="dtBlock"><b>Note</b>   Applies to PI_SEND_MESSAGE</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INVALID_MMP_CHAR</b></td><td> range 0x20 to 0x5F is violated for MMP message <blockquote class="dtBlock"><b>Note</b>   Applies to PI_SEND_MESSAGE</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_EXCP_GROUP</b></td><td> group not defined (1=valid) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_GENERATE_EXCEPTION</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_EXCP_NBR</b></td><td> exception number not in range <blockquote class="dtBlock"><b>Note</b>   Applies to PI_GENERATE_EXCEPTION</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_OFFER_TYPE</b></td><td> not in range (1-10) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_DISPATCH_EXT_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_DETAIL_TYPE</b></td><td> not in range (1-10) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_DISPATCH_EXT_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_NBR_CALL_MSGS</b></td><td> not in range (0-3) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_DISPATCH_EXT_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_FTJ_NBR</b></td><td> not in range (0-MAXINT) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_DISPATCH_EXT_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_CMSG_DEVICE</b></td><td> not in range (0-2) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_DISPATCH_EXT_CALL</blockquote></td></tr>
+<tr valign="top"><td><b>PI_INV_CMSG_MULTI_NUM</b></td><td> multi-call # (1-3) <blockquote class="dtBlock"><b>Note</b>   Applies to PI_DISPATCH_EXT_CALL</blockquote></td></tr></table>
+      </div>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="PI_Lib.html">PI_Lib</a>
+      </p>
+      <p>
+        <b>Assembly: </b>PI_Lib (in PI_Lib.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="PI_Lib.html">PI_Lib Namespace</a>
+      </p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="ErrorCodes enumeration">
+        </param>
+        <param name="Keyword" value="PI_Lib.ErrorCodes enumeration">
+        </param>
+        <param name="Keyword" value="PI_OK enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_OK enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_LEN enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_LEN enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_VALUE enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_VALUE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_FLEET enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_FLEET enumeration member">
+        </param>
+        <param name="Keyword" value="PI_DB_OP_FAIL enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_DB_OP_FAIL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_PRIO enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_PRIO enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_VEH enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_VEH enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_CALL_1 enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_CALL_1 enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_CALL_2 enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_CALL_2 enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_CALL_3 enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_CALL_3 enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_CALL_4 enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_CALL_4 enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_CALL_5 enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_CALL_5 enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_ADDR_STR enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_ADDR_STR enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_ADDR_NUM enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_ADDR_NUM enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_CITY enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_CITY enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_VEH_ATTRIB enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_VEH_ATTRIB enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_DRV_ATTRIB enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_DRV_ATTRIB enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_DUE_TIME enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_DUE_TIME enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_ZONE enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_ZONE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_NO_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_NO_CALL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_EXCEPTION_TYPE enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_EXCEPTION_TYPE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_EXCEPTION_MSG enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_EXCEPTION_MSG enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_EXCEPTION enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_EXCEPTION enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_APPROVAL enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_APPROVAL enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_GROUP enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_GROUP enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_RECEIVER enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_RECEIVER enumeration member">
+        </param>
+        <param name="Keyword" value="PI_NOT_RECEIVED enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_NOT_RECEIVED enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INVALID_MMP_CHAR enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INVALID_MMP_CHAR enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_EXCP_GROUP enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_EXCP_GROUP enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_EXCP_NBR enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_EXCP_NBR enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_OFFER_TYPE enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_OFFER_TYPE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_DETAIL_TYPE enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_DETAIL_TYPE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_NBR_CALL_MSGS enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_NBR_CALL_MSGS enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_FTJ_NBR enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_FTJ_NBR enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_CMSG_DEVICE enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_CMSG_DEVICE enumeration member">
+        </param>
+        <param name="Keyword" value="PI_INV_CMSG_MULTI_NUM enumeration member">
+        </param>
+        <param name="Keyword" value="ErrorCodes.PI_INV_CMSG_MULTI_NUM enumeration member">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:jwelch@mbsoft.com?subject=TaxiPak%20PI%20Library%20Documentation%20Feedback:%20ErrorCodes%20Enumeration">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a>MobileSoft Consulting, Inc. 2005/2006</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

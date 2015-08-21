@@ -1,0 +1,21 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling c:\Work\PI_Lib\doc\ndoc_msdn_temp\Documentation.chm
+
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.Creator.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.Fleet.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.GPSX.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.GPSY.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.Passenger.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.Phone.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "PI_Lib.PI_DISPATCH_ACCOUNT_CALL.Priority.html" is already listed in the [FILES] section of the project file.
+
+Compile time: 0 minutes, 3 seconds
+227	Topics
+1,362	Local links
+0	Internet links
+6	Graphics
+
+
+Created c:\Work\PI_Lib\doc\ndoc_msdn_temp\Documentation.chm, 116,627 bytes
+Compression decreased file by 679,316 bytes.
