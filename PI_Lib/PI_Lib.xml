@@ -4,222 +4,299 @@
         <name>PI_Lib</name>
     </assembly>
     <members>
-        <member name="T:PI_Lib.PI_DISPATCH_CALL">
+        <member name="T:PI_Lib.PI_RQST_GPS">
             <summary>
-            Summary description for PI_DISPATCH_CALL.
+            Summary description for PI_GET_CALL.
             </summary>
         </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.fleet">
-            <summary>
-            Fleet identifier where the order should be dispatched H - Taxi Helsinki
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_number">
+        <member name="F:PI_Lib.PI_RQST_GPS.veh_nbr">
             <summary>
             Order number that is assigned by TaxiPak
             </summary>
         </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.priority">
+        <member name="T:PI_Lib.PI_GET_CALL">
             <summary>
-            Order priority setting 1-25
+            Summary description for PI_GET_CALL.
             </summary>
         </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_group">
+        <member name="F:PI_Lib.PI_GET_CALL.call_number">
             <summary>
-            Number of orders in the call group
+            Order number that is assigned by TaxiPak
             </summary>
         </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_position">
-            <summary>
-            Position in a list of multiple calls
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.number_of_calls">
-            <summary>
-            Number of individual orders to enter for this request
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.number_of_vehicles">
-            <summary>
-            Number of cars to request for this order
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_type">
-            <summary>
-            Indicator of type of call
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_street">
-            <summary>
-            Pickup address street name
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_number">
-            <summary>
-            Pickup address street number
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_suffix">
-            <summary>
-            Pickup address street number suffix
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_apart">
-            <summary>
-            Pickup address apartment identifier
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_city">
-            <summary>
-            Three letter abbreviation for the pickup address city i.e. HEL
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_zone">
-            <summary>
-            Pickup address zone in TaxiPak
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_cmnt">
-            <summary>
-            Comment specific to the pickup address
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.passenger">
-            <summary>
-            Passenger's name
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.phone">
-            <summary>
-            Telephone number of client
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_street">
-            <summary>
-            Destination address street name
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_number">
-            <summary>
-            Destination address street number
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_suffix">
-            <summary>
-            Destination address number suffix
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_apart">
-            <summary>
-            Destination address apartment identifier
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_city">
-            <summary>
-            Three letter abbreviation for the destination city i.e. HEL
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_zone">
-            <summary>
-            Destination address zone in TaxiPak
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_cmnt">
-            <summary>
-            Comment specific to the destination address
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.car_number">
-            <summary>
-            Unique car number for the taxi that is servicing this order.
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.car_attrib">
-            <summary>
-            Set of fields indicating which driver attributes
-            are set for this order. Each character position contains
-            a value of ({Y/N},{J/N}, or {K/E}) to indicate whether this
-            attribute is set for the order
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.driver_id">
-            <summary>
-            Driver identification number of driver servicing this order
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.driver_attrib">
-            <summary>
-            Set of fields indicating which driver attributes
-            are set for this order. Each character position contains
-            a value of ({Y/N},{J/N}, or {K/E}) to indicate whether this
-            attribute is set for the order
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.creator">
-            <summary>
-            User ID of the calltaker entering the order
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.creation_date">
-            <summary>
-            Date that the order was created in TaxiPak
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.creation_time">
-            <summary>
-            Time that the order was created in TaxiPak
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.due_date">
-            <summary>
-            Date that the passenger is due for pickup
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.due_time">
-            <summary>
-            Time that the passenger is due for pickup
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.pickup_time">
-            <summary>
-            Time that the customer was picked up by the taxi
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.close_time">
-            <summary>
-            Time that the order was closed in TaxiPak
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_comment">
-            <summary>
-            General comment field
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_status">
-            <summary>
-            Numeric value indicating the status of the order
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.gpsx">
-            <summary>
-            GPS position on the X axis / Longitude
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_DISPATCH_CALL.gpsy">
-            <summary>
-            GPS position on the Y axis / Latitude
-            </summary>
-        </member>
-        <member name="M:PI_Lib.PI_DISPATCH_CALL.#ctor">
-            <summary>
+        <member name="T:PI_Lib.PI_UPDATE_CALL">
+             <summary>
+             <para> PI_DISPATCH_ACCOUNT_CALL allows a client to enter an order
+             in TaxiPak according to the address settings for a particular account.
+             Optionally, the client can also specify the pickup/destination address for the
+             order rather than using the default pickup address that is stored in the
+             account's record.</para>
+             </summary>
+            	<example>
+             <code lang="C#">
+             try 
+             {
+                  myPISocket = new PIClient();
+             }
+             catch (System.Net.Sockets.SocketException ex)
+             {
+                  MessageBox.Show(ex.Message, "Error connecting to TaxiPak",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  return;
+             }
+             
+             myPISocket.SetType(MessageTypes.PI_DISPATCH_ACCOUNT_CALL);
+             PI_DISPATCH_ACCOUNT_CALL myAcctCall = new new PI_DISPATCH_ACCOUNT_CALL();
+             
+             // Generate an immediate trip dispatched to the address associated with this account
+             myAcctCall.fleet = Char.Parse("H"); // Taxi Helsinki fleet
+             myAcctCall.acct_nbr = txtAccountID.Text.ToCharArray();
+             
+             myPISocket.sendBuf = myAcctCall.ToByteArray();
+             try
+             {
+            		myPISocket.SendMessage();
+            	}
+             catch (System.Net.Sockets.SocketException ex)
+             {
+                  MessageBox.Show(ex.Message, "Socket error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  return;
+             }
+             
+             // Successful 'send' to PI server. Now get the reply from the server
+             try
+             {
+                  myPISocket.ReceiveMessage();
+             }
+             catch (System.Net.Sockets.SocketException ex)
+             {
+                  MessageBox.Show(ex.Message, "Socket error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  return;
+             }
+             catch (System.ApplicationException ex)
+             {
+                  MessageBox.Show(ex.Message, "Application error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  return;
+             }
             
+             try
+             {
+                  myAcctCall.Deserialize( myPISocket.recvBuf );
+                  lblConfirm.Text = "Order confirmed with ref #" + myAcctCall.call_number.ToString();
+             }
+             catch (ApplicationException ex)
+             {
+                  MessageBox.Show(ex.Message, "Failed order",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  return;
+             }
+            
+             myPISocket.CloseMe();
+             </code></example>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.acct_nbr">
+            <summary>
+            Account number identifier. Size=16
             </summary>
         </member>
-        <member name="M:PI_Lib.PI_DISPATCH_CALL.Deserialize(System.Byte[])">
+        <member name="F:PI_Lib.PI_UPDATE_CALL.fleet">
+            <summary>
+            fleet identifier (A-H):  Main HTD fleet is designated
+            as Fleet H
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.call_number">
+            <summary>
+            stores call number returned by the PI server. This is the unique
+            identifier for the order within TaxiPak. Size=8
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.priority">
+            <summary>
+            priority for order 1(highest priority)- 25(lowest priority). Size=2
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.number_of_calls">
+            <summary>
+            how many trips to order for this account/address (1-9)
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.call_type">
+            <summary>
+            combination of types of call i.e. account, multi, time call. Size=5
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_street">
+            <summary>
+            streetname of pickup address. Size=21
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_number">
+            <summary>
+            streetnumber of pickup address. Size=6
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_suffix">
+            <summary>
+            streetnumber suffix letter
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_apart">
+            <summary>
+            apartment or room number of pickup address. Size=6
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_city">
+            <summary>
+            TaxiPak abbreviation of city of pickup address (Helsinki=HEL). Size=4
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_zone">
+            <summary>
+            zone of pickup address in TaxiPak geodatabase. This field is not
+            required but the pickup address must be 'zonable' within the TaxiPak
+            geographic database scheme. If successful, the PI server will return the
+            correct zone number in the reply along with the entered order number. Size=3
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_cmnt">
+            <summary>
+            pickup address comment. Size=31
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.passenger">
+            <summary>
+            name of passenger. Size=21
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.requested_by">
+            <summary>
+            person who made the request for the order. Size=21
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.phone">
+            <summary>
+            phone number of customer. Size=11
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_street">
+            <summary>
+            streetname of destination address. Size=21
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_number">
+            <summary>
+            streetnumber of destination address. Size=6
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_suffix">
+            <summary>
+            streetnumber suffix letter for destination
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_apart">
+            <summary>
+            apartment or room number of destination address. Size=6
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_city">
+            <summary>
+            TaxiPak abbreviation of city of destination address
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_zone">
+            <summary>
+            zone of destination address. Size=3
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_cmnt">
+            <summary>
+            destination address comment. Size=31
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.car_number">
+            <summary>
+            car number assigned to call. Size=6
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.car_attrib">
+            <summary>
+            vehicle attributes for trip (Y/N)(J/N)(K/E) Size=32
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.driver_id">
+            <summary>
+            driver number assigned to trip. Size=6
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.driver_attrib">
+            <summary>
+            driver attributes for trip (Y/N)(J/N)(K/E) Size=32
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.creator">
+            <summary>
+            user ID of the creator of the call. Size=4
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.creation_date">
+            <summary>
+            date the call is created/received YYMMDD Size=7
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.creation_time">
+            <summary>
+            time the call is created/received HHMM Size=5
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.due_date">
+            <summary>
+            date the call is due YYMMDD Size=7
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.due_time">
+            <summary>
+            time the call is due HHMM Size=5
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.pickup_time">
+            <summary>
+            time the the customer is picked up by the taxi HHMM Size=5
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.close_time">
+            <summary>
+            time that the trip is completed Size=5
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.call_comment">
+            <summary>
+            general comment for trip Size=65
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.gpsx">
+            <summary>
+            GPS coordinate X for pickup address Size=8
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_UPDATE_CALL.gpsy">
+            <summary>
+            GPS coordinate Y for pickup address
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PI_UPDATE_CALL.#ctor">
+            <summary>
+            Constructor for the class.
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PI_UPDATE_CALL.Deserialize(System.Byte[])">
             <summary>
             This method will extract a confirmation call number
             corresponding to the database record number (CALLS table) that
-            resulted from successful entry of the order.
+            resulted from successful entry of the account order.
             Upon successful execution, the confirmation number is accessed
             using the call_number property of the class.
             </summary>
@@ -230,14 +307,199 @@
             <param name="src">The byte array that contains the data packet
             returned by the PI server.</param>
         </member>
-        <member name="M:PI_Lib.PI_DISPATCH_CALL.ToByteArray">
+        <member name="M:PI_Lib.PI_UPDATE_CALL.ToByteArray">
             <summary>
             This method will take the necessary properties from the
-            PI_DISPATCH_CALL class and pack them into a byte array in preparation
+            PI_DISPATCH_ACCOUNT_CALL class and pack them into a byte array in preparation
             for transmission to the PI server.
             </summary>
             <returns>Byte array formatted correctly for transmission
             with the PI message</returns>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.AcctNbr">
+            <summary>
+            Account number identifier
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.Fleet">
+            <summary>
+            fleet identifier (A-H)
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CallNbr">
+            <summary>
+            stores call number 
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.Priority">
+            <summary>
+            priority for order 0-25
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.NbrCalls">
+            <summary>
+            how many trips to order
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CallType">
+            <summary>
+            combination of types of call i.e. account, multi, time call
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrStreet">
+            <summary>
+            streetname of pickup address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrNbr">
+            <summary>
+            streetnumber of pickup address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrSuffix">
+            <summary>
+            streetnumber suffix letter
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrApart">
+            <summary>
+            apartment or room number of pickup address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrCity">
+            <summary>
+            TaxiPak abbreviation of city of pickup address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrZone">
+            <summary>
+            zone of pickup address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrCmnt">
+            <summary>
+            pickup address comment
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.Passenger">
+            <summary>
+            name of passenger
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.RequestedBy">
+            <summary>
+            person who made the request for the order
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.Phone">
+            <summary>
+            phonenumber of customer
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrStreet">
+            <summary>
+            streetname of destination address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrNbr">
+            <summary>
+            streetnumber of destination address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrSuffix">
+            <summary>
+            streetnumber suffix letter
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrApart">
+            <summary>
+            apartment or room number of destination address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrCity">
+            <summary>
+            TaxiPak abbreviation of city of destination address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrZone">
+            <summary>
+            zone of destination address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrCmnt">
+            <summary>
+            destination address comment
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CarNbr">
+            <summary>
+            car number assigned to call
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CarAttrib">
+            <summary>
+            vehicle attributes for trip (Y/N)(J/N)(K/E)
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.DriverID">
+            <summary>
+            driver number assigned to trip
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.DriverAttrib">
+            <summary>
+            driver attributes for trip (Y/N)(J/N)(K/E)
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.Creator">
+            <summary>
+            user ID of the creator of the call
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CreationDate">
+            <summary>
+            date the call is created/received YYMMDD
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CreationTime">
+            <summary>
+            time the call is created/received HHMM
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.DueDate">
+            <summary>
+            date the call is due YYMMDD
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.DueTime">
+            <summary>
+            time the call is created/received HHMM
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.PickupTime">
+            <summary>
+            time the the customer is picked up by the taxi HHMM
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CloseTime">
+            <summary>
+            time that the trip is completed
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.CallComment">
+            <summary>
+            general comment for trip
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.GPSX">
+            <summary>
+            GPS coordinate X for pickup address
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PI_UPDATE_CALL.GPSY">
+            <summary>
+            GPS coordinate Y for pickup address
+            </summary>
         </member>
         <member name="T:PI_Lib.PI_DISPATCH_ACCOUNT_CALL">
              <summary>
@@ -716,24 +978,315 @@
             GPS coordinate Y for pickup address
             </summary>
         </member>
+        <member name="T:PI_Lib.PI_DISPATCH_CALL">
+            <summary>
+            Summary description for PI_DISPATCH_CALL.
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.fleet">
+            <summary>
+            Fleet identifier where the order should be dispatched H - Taxi Helsinki
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_number">
+            <summary>
+            Order number that is assigned by TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.priority">
+            <summary>
+            Order priority setting 1-25
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_group">
+            <summary>
+            Number of orders in the call group
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_position">
+            <summary>
+            Position in a list of multiple calls
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.number_of_calls">
+            <summary>
+            Number of individual orders to enter for this request
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.number_of_vehicles">
+            <summary>
+            Number of cars to request for this order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_type">
+            <summary>
+            Indicator of type of call
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_street">
+            <summary>
+            Pickup address street name
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_number">
+            <summary>
+            Pickup address street number
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_suffix">
+            <summary>
+            Pickup address street number suffix
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_apart">
+            <summary>
+            Pickup address apartment identifier
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_city">
+            <summary>
+            Three letter abbreviation for the pickup address city i.e. HEL
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_zone">
+            <summary>
+            Pickup address zone in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.from_addr_cmnt">
+            <summary>
+            Comment specific to the pickup address
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.passenger">
+            <summary>
+            Passenger's name
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.phone">
+            <summary>
+            Telephone number of client
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_street">
+            <summary>
+            Destination address street name
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_number">
+            <summary>
+            Destination address street number
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_suffix">
+            <summary>
+            Destination address number suffix
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_apart">
+            <summary>
+            Destination address apartment identifier
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_city">
+            <summary>
+            Three letter abbreviation for the destination city i.e. HEL
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_zone">
+            <summary>
+            Destination address zone in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.to_addr_cmnt">
+            <summary>
+            Comment specific to the destination address
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.car_number">
+            <summary>
+            Unique car number for the taxi that is servicing this order.
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.car_attrib">
+            <summary>
+            Set of fields indicating which driver attributes
+            are set for this order. Each character position contains
+            a value of ({Y/N},{J/N}, or {K/E}) to indicate whether this
+            attribute is set for the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.driver_id">
+            <summary>
+            Driver identification number of driver servicing this order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.driver_attrib">
+            <summary>
+            Set of fields indicating which driver attributes
+            are set for this order. Each character position contains
+            a value of ({Y/N},{J/N}, or {K/E}) to indicate whether this
+            attribute is set for the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.creator">
+            <summary>
+            User ID of the calltaker entering the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.creation_date">
+            <summary>
+            Date that the order was created in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.creation_time">
+            <summary>
+            Time that the order was created in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.due_date">
+            <summary>
+            Date that the passenger is due for pickup
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.due_time">
+            <summary>
+            Time that the passenger is due for pickup
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.pickup_time">
+            <summary>
+            Time that the customer was picked up by the taxi
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.close_time">
+            <summary>
+            Time that the order was closed in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_comment">
+            <summary>
+            General comment field
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.call_status">
+            <summary>
+            Numeric value indicating the status of the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.gpsx">
+            <summary>
+            GPS position on the X axis / Longitude
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_DISPATCH_CALL.gpsy">
+            <summary>
+            GPS position on the Y axis / Latitude
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PI_DISPATCH_CALL.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PI_DISPATCH_CALL.Deserialize(System.Byte[])">
+            <summary>
+            This method will extract a confirmation call number
+            corresponding to the database record number (CALLS table) that
+            resulted from successful entry of the order.
+            Upon successful execution, the confirmation number is accessed
+            using the call_number property of the class.
+            </summary>
+            <remarks>If the data buffer received from the PI server contains
+            an indication of an error, an ApplicationException is thrown
+            that should be caught by the application. The exception message
+            will contain the specific enumeration error code.</remarks>
+            <param name="src">The byte array that contains the data packet
+            returned by the PI server.</param>
+        </member>
+        <member name="M:PI_Lib.PI_DISPATCH_CALL.ToByteArray">
+            <summary>
+            This method will take the necessary properties from the
+            PI_DISPATCH_CALL class and pack them into a byte array in preparation
+            for transmission to the PI server.
+            </summary>
+            <returns>Byte array formatted correctly for transmission
+            with the PI message</returns>
+        </member>
         <member name="T:PI_Lib.PI_GET_EXCEPTS">
             <summary>
             Summary description for PI_GET_EXCEPTS.
             </summary>
         </member>
-        <member name="T:PI_Lib.PI_CANCEL_CALL">
+        <!-- Badly formed XML comment ignored for member "T:PI_Lib.PIClient" -->
+        <member name="M:PI_Lib.PIClient.#ctor(System.String,System.Int32)">
             <summary>
-            Summary description for PI_CANCEL_CALL.
+            Instantiates the PIClient class with a Hostname and service port. Sets the packet number to 0x00.
+            </summary>
+            <param name="Host">Hostname for the TaxiPak PI server.</param>
+            <param name="Port">Service port that TaxiPak PI server is listening to.</param>
+        </member>
+        <member name="M:PI_Lib.PIClient.#ctor">
+            <summary>
+            Instantiates the PIClient class without a hostname or service port. 
+            Sets the packet number to 0x01.
             </summary>
         </member>
-        <member name="T:PI_Lib.PI_RQST_GPS">
+        <member name="M:PI_Lib.PIClient.IncrementPacNum">
             <summary>
-            Summary description for PI_GET_CALL.
+            Increments the packet number for the session. If the value exceeds
+            0xff, the value is rolled back to 0x00.
             </summary>
         </member>
-        <member name="F:PI_Lib.PI_RQST_GPS.veh_nbr">
+        <member name="M:PI_Lib.PIClient.SendMessage">
             <summary>
-            Order number that is assigned by TaxiPak
+            Send the previously formatted PI message to the TaxiPak PI server using the established TCP client socket.
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PIClient.ReceiveMessage">
+            <summary>
+            Receive the reply from the TaxiPak PI server.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PI_Lib.PIClient.GetMessageLength">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PI_Lib.PIClient.SetMessageLength(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Length"></param>
+        </member>
+        <member name="M:PI_Lib.PIClient.SetType(PI_Lib.MessageTypes)">
+            <summary>
+            
+            </summary>
+            <param name="myType"></param>
+        </member>
+        <member name="M:PI_Lib.PIClient.CloseMe">
+            <summary>
+            Flushes all data on the socket and closes the socket connection.
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PIClient.PIServer">
+            <summary>
+            Gets or sets the value of the TaxiPak PI server as an IP address or hostname.
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PIClient.PIPort">
+            <summary>
+            Gets or sets the service port upon which the TaxiPak PI server is listening for connections.
+            </summary>
+        </member>
+        <member name="P:PI_Lib.PIClient.PacNum">
+            <summary>
+            Gets or sets the packet number for the current session between
+            the client and the server. Valid packet numbers are from 0x00 and 0xff.
+            The TaxiPak PI server enforces that these are in sequential order.
             </summary>
         </member>
         <member name="T:PI_Lib.PI_SEND_MESSAGE">
@@ -895,90 +1448,14 @@
             limit of 200 bytes on these messages.
             </summary>
         </member>
-        <member name="T:PI_Lib.PI_GET_CALL">
+        <member name="T:PI_Lib.PI_CANCEL_CALL">
             <summary>
-            Summary description for PI_GET_CALL.
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_GET_CALL.call_number">
-            <summary>
-            Order number that is assigned by TaxiPak
+            Summary description for PI_CANCEL_CALL.
             </summary>
         </member>
         <member name="T:PI_Lib.PI_ACCEPT_EXCEPTION">
             <summary>
             Summary description for PI_ACCEPT_EXCEPTION.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "T:PI_Lib.PIClient" -->
-        <member name="M:PI_Lib.PIClient.#ctor(System.String,System.Int32)">
-            <summary>
-            Instantiates the PIClient class with a Hostname and service port. Sets the packet number to 0x00.
-            </summary>
-            <param name="Host">Hostname for the TaxiPak PI server.</param>
-            <param name="Port">Service port that TaxiPak PI server is listening to.</param>
-        </member>
-        <member name="M:PI_Lib.PIClient.#ctor">
-            <summary>
-            Instantiates the PIClient class without a hostname or service port. 
-            Sets the packet number to 0x01.
-            </summary>
-        </member>
-        <member name="M:PI_Lib.PIClient.IncrementPacNum">
-            <summary>
-            Increments the packet number for the session. If the value exceeds
-            0xff, the value is rolled back to 0x00.
-            </summary>
-        </member>
-        <member name="M:PI_Lib.PIClient.SendMessage">
-            <summary>
-            Send the previously formatted PI message to the TaxiPak PI server using the established TCP client socket.
-            </summary>
-        </member>
-        <member name="M:PI_Lib.PIClient.ReceiveMessage">
-            <summary>
-            Receive the reply from the TaxiPak PI server.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PI_Lib.PIClient.GetMessageLength">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PI_Lib.PIClient.SetMessageLength(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="Length"></param>
-        </member>
-        <member name="M:PI_Lib.PIClient.SetType(PI_Lib.MessageTypes)">
-            <summary>
-            
-            </summary>
-            <param name="myType"></param>
-        </member>
-        <member name="M:PI_Lib.PIClient.CloseMe">
-            <summary>
-            Flushes all data on the socket and closes the socket connection.
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PIClient.PIServer">
-            <summary>
-            Gets or sets the value of the TaxiPak PI server as an IP address or hostname.
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PIClient.PIPort">
-            <summary>
-            Gets or sets the service port upon which the TaxiPak PI server is listening for connections.
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PIClient.PacNum">
-            <summary>
-            Gets or sets the packet number for the current session between
-            the client and the server. Valid packet numbers are from 0x00 and 0xff.
-            The TaxiPak PI server enforces that these are in sequential order.
             </summary>
         </member>
         <member name="T:PI_Lib.PI_LINE_MGR_ORDER">
@@ -1615,483 +2092,6 @@
         <member name="F:PI_Lib.LangEnglish.DRIVER_GROUP">
             <summary>
             Used in PI_SEND_MESSAGE for ReceiveGroup field
-            </summary>
-        </member>
-        <member name="T:PI_Lib.PI_UPDATE_CALL">
-             <summary>
-             <para> PI_DISPATCH_ACCOUNT_CALL allows a client to enter an order
-             in TaxiPak according to the address settings for a particular account.
-             Optionally, the client can also specify the pickup/destination address for the
-             order rather than using the default pickup address that is stored in the
-             account's record.</para>
-             </summary>
-            	<example>
-             <code lang="C#">
-             try 
-             {
-                  myPISocket = new PIClient();
-             }
-             catch (System.Net.Sockets.SocketException ex)
-             {
-                  MessageBox.Show(ex.Message, "Error connecting to TaxiPak",
-                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                  return;
-             }
-             
-             myPISocket.SetType(MessageTypes.PI_DISPATCH_ACCOUNT_CALL);
-             PI_DISPATCH_ACCOUNT_CALL myAcctCall = new new PI_DISPATCH_ACCOUNT_CALL();
-             
-             // Generate an immediate trip dispatched to the address associated with this account
-             myAcctCall.fleet = Char.Parse("H"); // Taxi Helsinki fleet
-             myAcctCall.acct_nbr = txtAccountID.Text.ToCharArray();
-             
-             myPISocket.sendBuf = myAcctCall.ToByteArray();
-             try
-             {
-            		myPISocket.SendMessage();
-            	}
-             catch (System.Net.Sockets.SocketException ex)
-             {
-                  MessageBox.Show(ex.Message, "Socket error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                  return;
-             }
-             
-             // Successful 'send' to PI server. Now get the reply from the server
-             try
-             {
-                  myPISocket.ReceiveMessage();
-             }
-             catch (System.Net.Sockets.SocketException ex)
-             {
-                  MessageBox.Show(ex.Message, "Socket error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                  return;
-             }
-             catch (System.ApplicationException ex)
-             {
-                  MessageBox.Show(ex.Message, "Application error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                  return;
-             }
-            
-             try
-             {
-                  myAcctCall.Deserialize( myPISocket.recvBuf );
-                  lblConfirm.Text = "Order confirmed with ref #" + myAcctCall.call_number.ToString();
-             }
-             catch (ApplicationException ex)
-             {
-                  MessageBox.Show(ex.Message, "Failed order",
-                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                  return;
-             }
-            
-             myPISocket.CloseMe();
-             </code></example>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.acct_nbr">
-            <summary>
-            Account number identifier. Size=16
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.fleet">
-            <summary>
-            fleet identifier (A-H):  Main HTD fleet is designated
-            as Fleet H
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.call_number">
-            <summary>
-            stores call number returned by the PI server. This is the unique
-            identifier for the order within TaxiPak. Size=8
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.priority">
-            <summary>
-            priority for order 1(highest priority)- 25(lowest priority). Size=2
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.number_of_calls">
-            <summary>
-            how many trips to order for this account/address (1-9)
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.call_type">
-            <summary>
-            combination of types of call i.e. account, multi, time call. Size=5
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_street">
-            <summary>
-            streetname of pickup address. Size=21
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_number">
-            <summary>
-            streetnumber of pickup address. Size=6
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_suffix">
-            <summary>
-            streetnumber suffix letter
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_apart">
-            <summary>
-            apartment or room number of pickup address. Size=6
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_city">
-            <summary>
-            TaxiPak abbreviation of city of pickup address (Helsinki=HEL). Size=4
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_zone">
-            <summary>
-            zone of pickup address in TaxiPak geodatabase. This field is not
-            required but the pickup address must be 'zonable' within the TaxiPak
-            geographic database scheme. If successful, the PI server will return the
-            correct zone number in the reply along with the entered order number. Size=3
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.from_addr_cmnt">
-            <summary>
-            pickup address comment. Size=31
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.passenger">
-            <summary>
-            name of passenger. Size=21
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.requested_by">
-            <summary>
-            person who made the request for the order. Size=21
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.phone">
-            <summary>
-            phone number of customer. Size=11
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_street">
-            <summary>
-            streetname of destination address. Size=21
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_number">
-            <summary>
-            streetnumber of destination address. Size=6
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_suffix">
-            <summary>
-            streetnumber suffix letter for destination
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_apart">
-            <summary>
-            apartment or room number of destination address. Size=6
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_city">
-            <summary>
-            TaxiPak abbreviation of city of destination address
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_zone">
-            <summary>
-            zone of destination address. Size=3
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.to_addr_cmnt">
-            <summary>
-            destination address comment. Size=31
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.car_number">
-            <summary>
-            car number assigned to call. Size=6
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.car_attrib">
-            <summary>
-            vehicle attributes for trip (Y/N)(J/N)(K/E) Size=32
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.driver_id">
-            <summary>
-            driver number assigned to trip. Size=6
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.driver_attrib">
-            <summary>
-            driver attributes for trip (Y/N)(J/N)(K/E) Size=32
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.creator">
-            <summary>
-            user ID of the creator of the call. Size=4
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.creation_date">
-            <summary>
-            date the call is created/received YYMMDD Size=7
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.creation_time">
-            <summary>
-            time the call is created/received HHMM Size=5
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.due_date">
-            <summary>
-            date the call is due YYMMDD Size=7
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.due_time">
-            <summary>
-            time the call is due HHMM Size=5
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.pickup_time">
-            <summary>
-            time the the customer is picked up by the taxi HHMM Size=5
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.close_time">
-            <summary>
-            time that the trip is completed Size=5
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.call_comment">
-            <summary>
-            general comment for trip Size=65
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.gpsx">
-            <summary>
-            GPS coordinate X for pickup address Size=8
-            </summary>
-        </member>
-        <member name="F:PI_Lib.PI_UPDATE_CALL.gpsy">
-            <summary>
-            GPS coordinate Y for pickup address
-            </summary>
-        </member>
-        <member name="M:PI_Lib.PI_UPDATE_CALL.#ctor">
-            <summary>
-            Constructor for the class.
-            </summary>
-        </member>
-        <member name="M:PI_Lib.PI_UPDATE_CALL.Deserialize(System.Byte[])">
-            <summary>
-            This method will extract a confirmation call number
-            corresponding to the database record number (CALLS table) that
-            resulted from successful entry of the account order.
-            Upon successful execution, the confirmation number is accessed
-            using the call_number property of the class.
-            </summary>
-            <remarks>If the data buffer received from the PI server contains
-            an indication of an error, an ApplicationException is thrown
-            that should be caught by the application. The exception message
-            will contain the specific enumeration error code.</remarks>
-            <param name="src">The byte array that contains the data packet
-            returned by the PI server.</param>
-        </member>
-        <member name="M:PI_Lib.PI_UPDATE_CALL.ToByteArray">
-            <summary>
-            This method will take the necessary properties from the
-            PI_DISPATCH_ACCOUNT_CALL class and pack them into a byte array in preparation
-            for transmission to the PI server.
-            </summary>
-            <returns>Byte array formatted correctly for transmission
-            with the PI message</returns>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.AcctNbr">
-            <summary>
-            Account number identifier
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.Fleet">
-            <summary>
-            fleet identifier (A-H)
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CallNbr">
-            <summary>
-            stores call number 
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.Priority">
-            <summary>
-            priority for order 0-25
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.NbrCalls">
-            <summary>
-            how many trips to order
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CallType">
-            <summary>
-            combination of types of call i.e. account, multi, time call
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrStreet">
-            <summary>
-            streetname of pickup address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrNbr">
-            <summary>
-            streetnumber of pickup address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrSuffix">
-            <summary>
-            streetnumber suffix letter
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrApart">
-            <summary>
-            apartment or room number of pickup address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrCity">
-            <summary>
-            TaxiPak abbreviation of city of pickup address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrZone">
-            <summary>
-            zone of pickup address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.FromAddrCmnt">
-            <summary>
-            pickup address comment
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.Passenger">
-            <summary>
-            name of passenger
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.RequestedBy">
-            <summary>
-            person who made the request for the order
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.Phone">
-            <summary>
-            phonenumber of customer
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrStreet">
-            <summary>
-            streetname of destination address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrNbr">
-            <summary>
-            streetnumber of destination address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrSuffix">
-            <summary>
-            streetnumber suffix letter
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrApart">
-            <summary>
-            apartment or room number of destination address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrCity">
-            <summary>
-            TaxiPak abbreviation of city of destination address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrZone">
-            <summary>
-            zone of destination address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.ToAddrCmnt">
-            <summary>
-            destination address comment
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CarNbr">
-            <summary>
-            car number assigned to call
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CarAttrib">
-            <summary>
-            vehicle attributes for trip (Y/N)(J/N)(K/E)
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.DriverID">
-            <summary>
-            driver number assigned to trip
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.DriverAttrib">
-            <summary>
-            driver attributes for trip (Y/N)(J/N)(K/E)
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.Creator">
-            <summary>
-            user ID of the creator of the call
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CreationDate">
-            <summary>
-            date the call is created/received YYMMDD
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CreationTime">
-            <summary>
-            time the call is created/received HHMM
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.DueDate">
-            <summary>
-            date the call is due YYMMDD
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.DueTime">
-            <summary>
-            time the call is created/received HHMM
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.PickupTime">
-            <summary>
-            time the the customer is picked up by the taxi HHMM
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CloseTime">
-            <summary>
-            time that the trip is completed
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.CallComment">
-            <summary>
-            general comment for trip
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.GPSX">
-            <summary>
-            GPS coordinate X for pickup address
-            </summary>
-        </member>
-        <member name="P:PI_Lib.PI_UPDATE_CALL.GPSY">
-            <summary>
-            GPS coordinate Y for pickup address
             </summary>
         </member>
     </members>

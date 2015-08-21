@@ -88,10 +88,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <Name>log4net</Name>
-      <HintPath>..\MPKMonitor\MPKBridge\bin\Debug\log4net.dll</HintPath>
-    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -101,11 +98,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="PI_Data">
-      <Name>PI_Data</Name>
-      <Project>{C81412B7-727D-42CD-91AE-D39AAE0277E6}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
