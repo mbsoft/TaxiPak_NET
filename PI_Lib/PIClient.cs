@@ -38,7 +38,7 @@ namespace PI_Lib
 		private const int PI_GET_CALL_LEN=4;
 		private const int PI_CANCEL_CALL_LEN=4;
         private const int PI_GPS_RQST_LEN = 4;
-		private const int PI_DISPATCH_ACCOUNT_CALL_LEN=425;
+		private const int PI_DISPATCH_ACCOUNT_CALL_LEN=441;
 		private const int PI_ZONE_INFO_LEN=74;
 		private const int PI_SEND_MESSAGE_LEN=544;
 		private const int PI_GET_EXCEPTIONS_LEN=12;

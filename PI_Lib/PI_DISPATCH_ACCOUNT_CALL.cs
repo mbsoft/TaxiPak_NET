@@ -270,6 +270,12 @@ namespace PI_Lib
 		[MarshalAs(UnmanagedType.LPArray, SizeConst=8)]
 		public char[]		gpsy;
 
+        [MarshalAs(UnmanagedType.LPArray, SizeConst = 8)]
+        public char[] fare_amount;
+
+        [MarshalAs(UnmanagedType.LPArray, SizeConst = 8)]
+        public char[] vat;
+
 		/// <summary>
 		/// Constructor for the class.
 		/// </summary>
@@ -654,7 +660,7 @@ namespace PI_Lib
 		public Byte[] ToByteArray()
 		{
 			Int32	_pos	= 0;
-			Byte[]	_dest	= new Byte[425];
+			Byte[]	_dest	= new Byte[441];
 			
 			//Array.Copy(acct_nbr, 0,_dest, acct_nbr.Length);
 			CopyStringField(ref _pos, acct_nbr, _dest, 16); 
@@ -693,8 +699,9 @@ namespace PI_Lib
 			CopyStringField(ref _pos, close_time, _dest, 5); 
 			CopyStringField(ref _pos, call_comment, _dest, 65); 
 			CopyStringField(ref _pos, gpsx, _dest, 8); 
-			CopyStringField(ref _pos, gpsy, _dest, 8); 
-
+			CopyStringField(ref _pos, gpsy, _dest, 8);
+            CopyStringField(ref _pos, fare_amount, _dest, 8);
+            CopyStringField(ref _pos, vat, _dest, 8);
 			return _dest;
 		}
 
