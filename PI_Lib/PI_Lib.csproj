@@ -103,6 +103,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PI_ZONE_ADDRESS.cs" />
     <Compile Include="PI_UPDATE_CALL.cs" />
     <Compile Include="PI_RQST_GPS.cs" />
     <Compile Include="PIClient.cs">

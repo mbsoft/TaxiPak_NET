@@ -2094,5 +2094,240 @@
             Used in PI_SEND_MESSAGE for ReceiveGroup field
             </summary>
         </member>
+        <member name="T:PI_Lib.PI_ZONE_ADDRESS">
+            <summary>
+            Summary description for PI_ZONE_ADDRESS
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.fleet">
+            <summary>
+            Fleet identifier where the order should be dispatched H - Taxi Helsinki
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.call_number">
+            <summary>
+            Order number that is assigned by TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.priority">
+            <summary>
+            Order priority setting 1-25
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.call_group">
+            <summary>
+            Number of orders in the call group
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.call_position">
+            <summary>
+            Position in a list of multiple calls
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.number_of_calls">
+            <summary>
+            Number of individual orders to enter for this request
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.number_of_vehicles">
+            <summary>
+            Number of cars to request for this order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.call_type">
+            <summary>
+            Indicator of type of call
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_street">
+            <summary>
+            Pickup address street name
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_number">
+            <summary>
+            Pickup address street number
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_suffix">
+            <summary>
+            Pickup address street number suffix
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_apart">
+            <summary>
+            Pickup address apartment identifier
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_city">
+            <summary>
+            Three letter abbreviation for the pickup address city i.e. HEL
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_zone">
+            <summary>
+            Pickup address zone in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.from_addr_cmnt">
+            <summary>
+            Comment specific to the pickup address
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.passenger">
+            <summary>
+            Passenger's name
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.phone">
+            <summary>
+            Telephone number of client
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_street">
+            <summary>
+            Destination address street name
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_number">
+            <summary>
+            Destination address street number
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_suffix">
+            <summary>
+            Destination address number suffix
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_apart">
+            <summary>
+            Destination address apartment identifier
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_city">
+            <summary>
+            Three letter abbreviation for the destination city i.e. HEL
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_zone">
+            <summary>
+            Destination address zone in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.to_addr_cmnt">
+            <summary>
+            Comment specific to the destination address
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.car_number">
+            <summary>
+            Unique car number for the taxi that is servicing this order.
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.car_attrib">
+            <summary>
+            Set of fields indicating which driver attributes
+            are set for this order. Each character position contains
+            a value of ({Y/N},{J/N}, or {K/E}) to indicate whether this
+            attribute is set for the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.driver_id">
+            <summary>
+            Driver identification number of driver servicing this order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.driver_attrib">
+            <summary>
+            Set of fields indicating which driver attributes
+            are set for this order. Each character position contains
+            a value of ({Y/N},{J/N}, or {K/E}) to indicate whether this
+            attribute is set for the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.creator">
+            <summary>
+            User ID of the calltaker entering the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.creation_date">
+            <summary>
+            Date that the order was created in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.creation_time">
+            <summary>
+            Time that the order was created in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.due_date">
+            <summary>
+            Date that the passenger is due for pickup
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.due_time">
+            <summary>
+            Time that the passenger is due for pickup
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.pickup_time">
+            <summary>
+            Time that the customer was picked up by the taxi
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.close_time">
+            <summary>
+            Time that the order was closed in TaxiPak
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.call_comment">
+            <summary>
+            General comment field
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.call_status">
+            <summary>
+            Numeric value indicating the status of the order
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.gpsx">
+            <summary>
+            GPS position on the X axis / Longitude
+            </summary>
+        </member>
+        <member name="F:PI_Lib.PI_ZONE_ADDRESS.gpsy">
+            <summary>
+            GPS position on the Y axis / Latitude
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PI_ZONE_ADDRESS.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PI_Lib.PI_ZONE_ADDRESS.Deserialize(System.Byte[])">
+            <summary>
+            This method will extract a confirmation call number
+            corresponding to the database record number (CALLS table) that
+            resulted from successful entry of the order.
+            Upon successful execution, the confirmation number is accessed
+            using the call_number property of the class.
+            </summary>
+            <remarks>If the data buffer received from the PI server contains
+            an indication of an error, an ApplicationException is thrown
+            that should be caught by the application. The exception message
+            will contain the specific enumeration error code.</remarks>
+            <param name="src">The byte array that contains the data packet
+            returned by the PI server.</param>
+        </member>
+        <member name="M:PI_Lib.PI_ZONE_ADDRESS.ToByteArray">
+            <summary>
+            This method will take the necessary properties from the
+            PI_DISPATCH_CALL class and pack them into a byte array in preparation
+            for transmission to the PI server.
+            </summary>
+            <returns>Byte array formatted correctly for transmission
+            with the PI message</returns>
+        </member>
     </members>
 </doc>

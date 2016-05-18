@@ -244,6 +244,7 @@ namespace PI_Lib
 			switch (myType)
 			{
 				case MessageTypes.PI_DISPATCH_CALL:
+                case MessageTypes.PI_ZONE_ADDRESS:
 					SetMessageLength(PI_DISPATCH_CALL_LEN + PI_OVERHEAD_LEN + 16);
 					recvBuf = new byte[1024];
 					break;
