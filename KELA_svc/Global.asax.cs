@@ -54,18 +54,19 @@ namespace SUTI_svc
             CallHashTable = new Hashtable();
             MsgHashTable = new Hashtable();
             Thread thread = new Thread(CallBackgroundWorkThread);
-
+            //Thread thread = new Thread(TestCallBackgroundWorkThread);
             System.Net.ServicePointManager.DefaultConnectionLimit = 200;
             System.Net.ServicePointManager.MaxServicePointIdleTime = 2000;
             System.Net.ServicePointManager.MaxServicePoints = 1000;
             System.Net.ServicePointManager.SetTcpKeepAlive(false, 0, 0);
-
-            lock (lockObject)
+            int counter;
+            lock (lockObject) 
             {
                 MsgHashTable.Clear();
                 //Initialize based on current contents of Kela time calls
                 OdbcConnection connIfx = new OdbcConnection(ConfigurationSettings.AppSettings.Get("MadsODBC"));
-                
+                 
+                counter = 0;
                 try
                 {
                     connIfx.Open();
@@ -73,18 +74,31 @@ namespace SUTI_svc
                     try
                     {
                         using (OdbcCommand ct = connIfx.CreateCommand())
-                        {
+                        {   
                             ct.CommandType = CommandType.Text;
-                            ct.CommandText = "select distinct cl_nbr, cl_status, cl_extended_type, cl_due_date_time, tpak_id, rte_id  from calls, kela_node where cl_fleet='H' and cl_pri_status = 63 and cl_due_date_time > 0 and cl_drv_id = 0 and cl_status='ODOTTAA' and cl_nbr=tpak_id order by cl_due_date_time";
+                            ct.CommandText = "select distinct cl_nbr, cl_status, cl_extended_type, cl_due_date_time, tpak_id, rte_id  from calls, kela_node where cl_fleet='H' and cl_due_date_time > 0 and (cl_status='ODOTTAA' or cl_status='NOUTO' or cl_status='VLITETTY' or cl_status='AVOIN') and cl_nbr=tpak_id order by cl_due_date_time";
                             System.Diagnostics.Debug.WriteLine(ct.CommandText);
-                            using (OdbcDataReader rdr = ct.ExecuteReader())
+                            using (OdbcDataReader rdr = ct.ExecuteReader()) 
                             {
+                                 
                                 while (rdr.Read()) 
                                 {
-                                    if (rdr[2].ToString().Contains("KEE"))
+                                    counter++;
+                                    //if (rdr[2].ToString().Contains("KEE"))
+                                    if (rdr[2].ToString().Contains("KE"))
                                     {
                                         OrderMonitor om = new OrderMonitor(null, rdr[4].ToString(), rdr[5].ToString());
                                         om.due_date_time = (int)rdr[3];
+                                        if (om.orderStatus == OrderMonitor.CallStatus.ASSIGNED)
+                                        {
+                                            om.bSentConfirm = true;
+                                            om.bSentAccept = true;
+                                        }
+                                        if (om.orderStatus == OrderMonitor.CallStatus.PICKUP)
+                                        {
+                                            om.bSentAccept = true;
+                                            om.bSentConfirm = true;
+                                        }
                                         CallHashTable.Add(om, rdr[4].ToString());
                                     }
 
@@ -103,11 +117,80 @@ namespace SUTI_svc
                 {
                     System.Diagnostics.Debug.WriteLine(exc.Message);
                 }
+
                 connIfx.Close();
-
+                log.InfoFormat("Records loaded  " + counter);
             }
-
+              
             thread.Start();
+        }
+         
+        private void TestCallBackgroundWorkThread()
+        {
+            List<DictionaryEntry> removeList = new List<DictionaryEntry>();
+            while (true)
+            {
+                lock (lockObject)
+                {
+                    // Check status of all Calls in List
+                    removeList.Clear();
+                    int count = 0;
+                    int countChecked = 0;
+                    foreach (DictionaryEntry de in CallHashTable)
+                    {
+                        DateTime thisTime = DateTime.Now;
+                        bool isSummertime = TimeZoneInfo.Local.IsDaylightSavingTime(thisTime);
+                        double currentTime;
+                        if (isSummertime)
+                            currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds + 3600;
+                        else
+                            currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds;
+
+                        OrderMonitor om = (OrderMonitor)de.Key;
+
+                        try
+                        {
+                            if (om.due_date_time - currentTime < 2100)  // 35 minutes?
+                            {
+                                CheckOrderStatus(om);
+                                ++countChecked;
+                                log.InfoFormat("Checking order " + om.tpak_id + " status " + om.orderStatus + " veh_nbr " + om.veh_nbr);
+                                if (currentTime - om.due_date_time > 10800) // more than 3 hours old
+                                    removeList.Add(de);
+                            }
+                            ++count;
+                            //log.InfoFormat("Checking order " + om.tpak_id + " status " + om.orderStatus + " veh_nbr " + om.veh_nbr);
+
+                            if (om.orderStatus == OrderMonitor.CallStatus.CANCELED)
+                            {
+                                removeList.Add(de);
+                            }
+                            else if ((om.orderStatus == OrderMonitor.CallStatus.ASSIGNED || om.orderStatus == OrderMonitor.CallStatus.PICKUP) &&
+                                (!om.bSentAccept))
+                            {
+                                om.bSentAccept = true;
+                            }
+                            else if ((om.orderStatus == OrderMonitor.CallStatus.COMPLETE))
+                            {
+                                removeList.Add(de);
+                            }
+                        }
+                        catch (Exception exc)
+                        {
+                            log.InfoFormat(exc.Message);
+                        }
+
+
+                    }
+                    foreach (DictionaryEntry de in removeList)
+                        CallHashTable.Remove(de.Key);
+
+                    removeList.Clear();
+                    log.Info("Total Kela orders  " + count + " Orders checked " + countChecked);
+
+                }
+                Thread.Sleep(15000);
+            }
         }
 
         private void CallBackgroundWorkThread()
@@ -195,8 +278,10 @@ namespace SUTI_svc
                                 // SEND ORDER REJECT 2002
                                 OrderKELAReject or = new OrderKELAReject(om.kela_id, om.tpak_id, om.inSUTImsg,
                                     Int32.Parse(Application["msgCount"].ToString()));
-                                or.ReplyOrderCancel();
-                                removeList.Add(de);
+                         
+                                 or.ReplyOrderCancel();
+                                 removeList.Add(de);
+
                             }
                             else if ((om.orderStatus == OrderMonitor.CallStatus.ASSIGNED || om.orderStatus == OrderMonitor.CallStatus.PICKUP) &&
                                 (!om.bSentAccept))
@@ -222,7 +307,7 @@ namespace SUTI_svc
                             log.InfoFormat(exc.Message);
                         }
 
-                              
+                               
                     }
                     log.Info("Total Kela orders  " + count + " Orders checked " + countChecked);
                     foreach (DictionaryEntry de in removeList)
@@ -230,7 +315,7 @@ namespace SUTI_svc
 
                     removeList.Clear();
                 }
-            
+             
                 Thread.Sleep(10000);
             }
 
