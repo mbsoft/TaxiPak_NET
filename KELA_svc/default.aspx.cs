@@ -342,40 +342,49 @@ namespace SUTI_svc
                         {
 
                         }
-                        PI_CANCEL_CALL canxCall = new PI_CANCEL_CALL();
-                        try
-                        {
-                            myPISocket = new PI_Lib.PIClient();
-                            log.InfoFormat("<-- Successful PI socket connection");
-                        }
-                        catch (System.Net.Sockets.SocketException ex)
-                        {
-                            log.InfoFormat("Error on PI socket ({0})", ex.Message);
-                            return;
-                        }
-                        myPISocket.SetType(MessageTypes.PI_CANCEL_CALL);
-                        myPISocket.sendBuf = canxCall.ToByteArray(tpak_id);
-                        try
-                        {
-                            log.InfoFormat("Cancelling TaxiPak order {0}", tpak_id.ToString());
-                            myPISocket.SendMessage();
-                            myPISocket.ReceiveMessage();
-                            canxCall.Deserialize(myPISocket.recvBuf);
-                            myPISocket.CloseMe();
-                        }
-                        catch (Exception exc)
-                        {
-                            log.InfoFormat("<--- error on PI socket send " + exc.Message);
-                            return;
-                        }
                         lock (Global.lockObject)
                         {
+                            PI_CANCEL_CALL canxCall = new PI_CANCEL_CALL();
+                            try
+                            {
+                                myPISocket = new PI_Lib.PIClient();
+                                log.InfoFormat("<-- Successful PI socket connection");
+                            }
+                            catch (System.Net.Sockets.SocketException ex)
+                            {
+                                log.InfoFormat("Error on PI socket ({0})", ex.Message);
+                                return;
+                            }
+                            myPISocket.SetType(MessageTypes.PI_CANCEL_CALL);
+                            myPISocket.sendBuf = canxCall.ToByteArray(tpak_id);
+                            try
+                            {
+                                log.InfoFormat("Cancelling TaxiPak order {0}", tpak_id.ToString());
+                                myPISocket.SendMessage();
+                                myPISocket.ReceiveMessage();
+                                canxCall.Deserialize(myPISocket.recvBuf);
+                                myPISocket.CloseMe();
+                            }
+                            catch (Exception exc)
+                            {
+                                log.InfoFormat("<--- error on PI socket send " + exc.Message);
+                                return;
+                            }
+
                             Global.MsgHashTable.Add(theMsg.idMsg.id, smsg);
 
                             if (tpak_id.ToString().Length > 0)
                             {
-                                log.InfoFormat("--- found call to remove from monitoring " + tpak_id.ToString());
-                                Global.CallHashTable.Remove(tpak_id.ToString());
+                                foreach (DictionaryEntry de in Global.CallHashTable)
+                                {
+                                    OrderMonitor om = (OrderMonitor)de.Key;
+                                    if (om.tpak_id.Equals(tpak_id.ToString()))
+                                    {
+                                        log.InfoFormat("--- found call to remove from monitoring " + tpak_id.ToString());
+                                        Global.CallHashTable.Remove(de.Key);
+                                        break;
+                                    }
+                                }
                             }
                         }
 
@@ -943,7 +952,7 @@ namespace SUTI_svc
                 myCall.driver_attrib = drv_attr.ToCharArray();
                     if (ro.vehicle.idVehicle != null)
                     {
-                        if (ro.vehicle.idVehicle.id.Length > 0)
+                        if (ro.vehicle.idVehicle.id != null && ro.vehicle.idVehicle.id.Length > 0)
                             myCall.car_number = Convert.ToInt16(ro.vehicle.idVehicle.id);
                     }
             }
