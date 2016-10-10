@@ -31,7 +31,7 @@ namespace SUTI_svc
 
         public DispatchConfirm(string _kela_id, string _veh_nbr, SUTI _smsg, int msgCounter)
         {
-            kela_id = _kela_id;
+            kela_id = _kela_id.Trim();
             veh_nbr = _veh_nbr;
             smsg = _smsg;
             msgCount = msgCounter;
@@ -67,7 +67,7 @@ namespace SUTI_svc
             msgResponse.referencesTo = new msgReferencesTo();
             idType idOrder = new idType();
             idOrder.src = "801:Valopilkku_TYP_002:MISSIONID";
-            idOrder.id = this.kela_id;
+            idOrder.id = this.kela_id.Trim();
             List<idType> idList = new List<idType>();
             idList.Add(idOrder);
             //idList.Add(smsg.msg[0].idMsg);

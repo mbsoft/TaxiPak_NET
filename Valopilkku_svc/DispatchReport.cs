@@ -33,7 +33,7 @@ namespace SUTI_svc
 
         public DispatchReport(string _kela_id, string _veh_nbr, string _tpak_id, SUTI _smsg, int msgCounter)
         {
-            kela_id = _kela_id;
+            kela_id = _kela_id.Trim();
             veh_nbr = _veh_nbr;
             tpak_id = _tpak_id;
             smsg = _smsg;

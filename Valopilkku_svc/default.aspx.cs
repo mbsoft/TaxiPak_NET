@@ -137,7 +137,6 @@ namespace SUTI_svc
             SUTI smsg;
             SUTI rmsg;
 
-
             Stream reqStream = Request.InputStream;
             StreamReader rdr = new StreamReader(reqStream, Encoding.GetEncoding("utf-8"));
 
@@ -160,7 +159,7 @@ namespace SUTI_svc
 
                     reqXml = nav.SelectSingleNode(xPath).Value;
                 }
-                log.InfoFormat("HUT -> HTD: " + reqXml);
+
                 smsg = SUTI.Deserialize(reqXml);
 
                 //SUTIMsg msgResponse = new SUTIMsg();
@@ -226,40 +225,50 @@ namespace SUTI_svc
                         // Send to PI handler
                         // Then acknowledge receipt
                         PI_RQST_GPS myRqstGPS = new PI_RQST_GPS();
-                        myRqstGPS.veh_nbr = 465;
+                       // myRqstGPS.veh_nbr = 465;
                         idType idVehicle = theMsg.referencesTo.idVehicle;
+                        myRqstGPS.veh_nbr = Int32.Parse(idVehicle.id);
                         SUTI_svc.locationRequest theRequest = ((SUTI_svc.locationRequest)theMsg.Item);
 
-                        try
+                        if (myRqstGPS.veh_nbr != 9800)
                         {
-                            myPISocket = new PI_Lib.PIClient();
-                            log.InfoFormat("<-- Successful PI socket connection");
-                        }
-                        catch (System.Net.Sockets.SocketException ex)
-                        {
-                            log.InfoFormat("Error on PI socket ({0})", ex.Message);
-                            return;
-                        }
-                        myPISocket.SetType(MessageTypes.PI_RQST_GPS);
-                        myPISocket.sendBuf = myRqstGPS.ToByteArray(Int32.Parse(idVehicle.id));
-                        //myPISocket.sendBuf = myRqstGPS.ToByteArray(Int32.Parse("9996"));
-                        try
-                        {
-                            log.InfoFormat("<-- PI_RQST_GPS");
-                            myPISocket.SendMessage();
-                            myPISocket.CloseMe();
+                            //try
+                            //{
+                            //    myPISocket = new PI_Lib.PIClient();
+                            //    log.InfoFormat("<-- Successful PI socket connection");
+                            //}
+                            //catch (System.Net.Sockets.SocketException ex)
+                            //{
+                            //    log.InfoFormat("Error on PI socket ({0})", ex.Message);
+                            //    return;
+                            //}
+                            //myPISocket.SetType(MessageTypes.PI_RQST_GPS);
+                            //myPISocket.sendBuf = myRqstGPS.ToByteArray(Int32.Parse(idVehicle.id));
+                            ////myPISocket.sendBuf = myRqstGPS.ToByteArray(Int32.Parse("9996"));
+                            //try
+                            //{
+                            //    log.InfoFormat("<-- PI_RQST_GPS");
+                            //    myPISocket.SendMessage();
+                            //    myPISocket.CloseMe();
 
+                            //}
+                            //catch (Exception exc)
+                            //{
+                            //    log.InfoFormat("<-- error on PI socket send (PI_RQST_GPS) " + exc.Message);
+                            //    return;
+                            //}
+                        }
+                        try
+                        {
+                            lock (Global.lockObject)
+                            {
+                                //smsg.timestamp = DateTime.Now;
+                                Global.MsgHashTable.Add(theMsg.idMsg.id, smsg);
+                            }
                         }
                         catch (Exception exc)
                         {
-                            log.InfoFormat("<-- error on PI socket send (PI_RQST_GPS) " + exc.Message);
-                            return;
-                        }
-
-                        lock (Global.lockObject)
-                        {
-                            //smsg.timestamp = DateTime.Now;
-                            Global.MsgHashTable.Add(DateTime.Now, smsg);
+                            log.InfoFormat("<-- duplicate PI_RQST_GPS hashtable value " + exc.Message);
                         }
                     }
                     else if (theMsg.msgType.Equals("7099"))
@@ -280,6 +289,7 @@ namespace SUTI_svc
                     }
                     else if (theMsg.msgType.Equals("2003")) // Order Reject Confirm
                     {
+                        log.InfoFormat("HUT -> HTD: " + reqXml);
                         OrderKelaRejectConfirm myOrderKELARejectConfirm = new OrderKelaRejectConfirm(smsg, theMsg, theMsg.idMsg.id, Int32.Parse(Application["msgCount"].ToString()));
                         Response.Filter = new HDIResponseFilter(Response.Filter);
                         Response.Write(myOrderKELARejectConfirm.QuickReply());
@@ -287,6 +297,7 @@ namespace SUTI_svc
                     }
                     else if (theMsg.msgType.Equals("2000"))
                     {
+                        log.InfoFormat("HUT -> HTD: " + reqXml);
                         // Order handler
                         OrderKELA myOrderKELA = new OrderKELA(smsg, theMsg, theMsg.idMsg.id, Int32.Parse(Application["msgCount"].ToString()));
 
@@ -345,32 +356,36 @@ namespace SUTI_svc
                             string drv_attr = ConfigurationSettings.AppSettings["Driver_Attr"];
 
                             if (attrList.Count > 0)
-                            {
+                            { 
                                 foreach (var idAttr in attrList)
                                 {
                                     if (idAttr.idAttribute.id.Equals("1618"))  //EB
                                     {
-                                        veh_attr = "EEEEEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
+                                        veh_attr = "EEEEEEEKEKEEEEEEEEEEEEEEEKEEEEEE";
                                     }
-                                    else if (idAttr.idAttribute.id.Equals("1601"))  //EB,FA
+                                    else if (idAttr.idAttribute.id.Equals("1601"))  //FA (4)
                                     {
-                                        veh_attr = "EEEKEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
+                                        veh_attr = "EEEKEEEEKKEEEEEEEEEEEEEEEKEEEEEE";
                                     }
-                                    else if (idAttr.idAttribute.id.Equals("1619"))  //8H
+                                    else if (idAttr.idAttribute.id.Equals("1619"))  //8H (2)
                                     {
-                                        veh_attr = "EKEEEEEEEEEEEEEEEEEEEEEEEKEEKEEE";
+                                        veh_attr = "EKEEEEEEKKEEEEEEEEEEEEEEEKEEEEEE";
                                     }
                                     else if (idAttr.idAttribute.id.Equals("1614"))  //IN
                                     {
-                                        veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
+                                        veh_attr = "EEEEEEEEEKEEEEEEEEEEEEEEEKEEKEKE";
                                     }
                                     else if (idAttr.idAttribute.id.Equals("1615"))  //IN
                                     {
-                                        veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
+                                        veh_attr = "EEEEEEEEEKEEEEEEEEEEEEEEEKEEKEKE";
                                     }
                                     else if (idAttr.idAttribute.id.Equals("1613"))  //PA-19
                                     {
-                                        veh_attr = "EEEEEEEEEEEEEEEEEEKEEEEEEKEEKEEE";
+                                        veh_attr = "EEEEEEEEEKEEEEEEEEKEEEEEEKEEKEEE";
+                                    }
+                                    else if (idAttr.idAttribute.id.Equals("1620"))  //TEST
+                                    {
+                                        veh_attr = "EKEEEEEKEKEEEEEEEEEEEEEEEKEEEEEE";
                                     }
 
                                 }
@@ -475,6 +490,9 @@ namespace SUTI_svc
                                 //    rte.addressNode.geographicLocation.@long, out utm_east, out utm_north, out utm_zone);
                                 myCall.gpsx = rte.addressNode.geographicLocation.@long.ToString().ToCharArray();
                                 myCall.gpsy = rte.addressNode.geographicLocation.lat.ToString().ToCharArray();
+                                myCall.to_addr_city = String.Empty.ToCharArray();
+                                myCall.to_addr_street = String.Empty.ToCharArray();
+                                myCall.to_addr_zone = 0;
                             }
                             else if (rte.nodeType == nodeNodeType.destination)
                             {
@@ -488,6 +506,10 @@ namespace SUTI_svc
                         }
                         if (totalCount > 0)
                             //myCall.to_addr_street = "  ".ToCharArray();
+
+                        myCall.to_addr_city = String.Empty.ToCharArray();
+                        myCall.to_addr_street = String.Empty.ToCharArray();
+                        myCall.to_addr_zone = 0;
 
                         // Send to PI handler
                         // Then acknowledge receipt
@@ -550,6 +572,7 @@ namespace SUTI_svc
                     }
                     else if (theMsg.msgType.Equals("2010"))
                     {
+                        log.InfoFormat("HUT -> HTD: " + reqXml);
                         OrderKelaCancel myOrderCancel = new OrderKelaCancel(smsg, theMsg, theMsg.idMsg.id, Int32.Parse(Application["msgCount"].ToString()));
 
                         SUTI_svc.referencesTo refTo = ((SUTI_svc.referencesTo)theMsg.referencesTo);
@@ -579,6 +602,20 @@ namespace SUTI_svc
                         {
 
                         }
+                        lock (Global.lockObject)
+                        {
+                            Global.MsgHashTable.Add(theMsg.idMsg.id, smsg);
+                            foreach (DictionaryEntry de in Global.CallHashTable)
+                            {
+                                OrderMonitor om = (OrderMonitor)de.Key;
+                                if (Int32.Parse(om.tpak_id) == tpak_id)
+                                {
+                                    Global.CallHashTable.Remove(de.Key);
+                                    break;
+                                }
+                            }
+                        }
+
                         PI_CANCEL_CALL canxCall = new PI_CANCEL_CALL();
                         try
                         {
@@ -605,15 +642,14 @@ namespace SUTI_svc
                             log.InfoFormat("<--- error on PI socket send " + exc.Message);
                             return;
                         }
-                        lock (Global.lockObject)
-                        {
-                            Global.MsgHashTable.Add(theMsg.idMsg.id, smsg);
-                        }
+
+
                         Response.Filter = new HDIResponseFilter(Response.Filter);
                         Response.Write(myOrderCancel.QuickReply());
                     }
                     else if (theMsg.msgType.Equals("5000"))
                     {
+                        log.InfoFormat("HUT -> HTD: " + reqXml);
                         // Message to Vehicle handler
                         MsgToVehicle myMsgToVehicle = new MsgToVehicle(smsg, theMsg, theMsg.idMsg.id, Int32.Parse(Application["msgCount"].ToString()));
 

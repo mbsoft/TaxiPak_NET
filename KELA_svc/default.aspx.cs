@@ -145,6 +145,7 @@ namespace SUTI_svc
             XmlSerializer mySerializer = new XmlSerializer(typeof(SUTI));
 
 
+<<<<<<< HEAD
             /* PI TEST
             
             Byte[] _after = new Byte[28];
@@ -179,6 +180,8 @@ namespace SUTI_svc
             System.Diagnostics.Debug.WriteLine("Customer is in zone - " + new string(myCustomerZone.zone));
             // END TEST */
 
+=======
+>>>>>>> e0d5dbc86e346f7519d6cc506abe86dedcb8a366
             try
             {
                 XPathNavigator nav;
@@ -699,6 +702,10 @@ namespace SUTI_svc
                                         {
                                             veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
                                             veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                        }
+                                        else if (idAttr.idAttribute.id.Equals("1600")) // EB 8H
+                                        {
+                                            veh_attr = "EKEEEEEKEEEEEEEEEEEEEEEEEEEEEEEE";
                                         }
 
                                     }

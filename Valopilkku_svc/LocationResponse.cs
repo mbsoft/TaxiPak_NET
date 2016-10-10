@@ -95,7 +95,7 @@ namespace SUTI_svc
 
             try
             {
-                log.InfoFormat("HTD->HUT " + rmsg.Serialize().ToString());
+                //log.InfoFormat("HTD->HUT " + rmsg.Serialize().ToString());
                 
                 string response = "<SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:ZSI='http://www.zolera.com/schemas/ZSI/' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'><SOAP-ENV:Header></SOAP-ENV:Header><SOAP-ENV:Body xmlns:ns1='http://tempuri.org/'><ns1:ReceiveSutiMsg><ns1:xmlstring>" +
                     System.Web.HttpUtility.HtmlEncode(rmsg.Serialize().ToString()) +
@@ -117,7 +117,7 @@ namespace SUTI_svc
                 request.ContentType = "application/xml";
                 Stream writer = request.GetRequestStream();
 
-                log.InfoFormat("HTD->HUT " + response);
+                //log.InfoFormat("HTD->HUT " + response);
                 writer.Write(buffer, 0, buffer.Length);
                 writer.Close();
 
@@ -125,7 +125,7 @@ namespace SUTI_svc
                 WebResponse resp = request.GetResponse();
                 writer = resp.GetResponseStream();
                 StreamReader rdr = new StreamReader(writer);
-                log.InfoFormat("HUT->HTD " + rdr.ReadToEnd());
+                //log.InfoFormat("HUT->HTD " + rdr.ReadToEnd());
                 rdr.Close();
                 writer.Close();
                 resp.Close();
@@ -152,7 +152,7 @@ namespace SUTI_svc
             String response = "<SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:ZSI='http://www.zolera.com/schemas/ZSI/' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'><SOAP-ENV:Header></SOAP-ENV:Header><SOAP-ENV:Body xmlns:ns1='http://tempuri.org/'><ns1:ReceiveSutiMsgResponse><ns1:ReceiveSutiMsgResult>" +
                                 "1</ns1:ReceiveSutiMsgResult></ns1:ReceiveSutiMsgResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>";
 
-            log.InfoFormat("HTD->HUT " + response);
+            //log.InfoFormat("HTD->HUT " + response);
 
             return response;
         }

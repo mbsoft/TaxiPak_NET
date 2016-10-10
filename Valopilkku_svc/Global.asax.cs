@@ -40,6 +40,7 @@ namespace SUTI_svc
         public static Hashtable CallHashTable;
         public static Hashtable MsgHashTable;
         public static object lockObject = new Object();
+        private static bool restart = true;
 
 		public Global()
 		{
@@ -65,7 +66,14 @@ namespace SUTI_svc
                 MsgHashTable.Clear();
                 //Initialize based on current contents of Kela time calls
                 OdbcConnection connIfx = new OdbcConnection(ConfigurationSettings.AppSettings.Get("MadsODBC"));
-                
+
+                DateTime thisTime = DateTime.Now;
+                bool isSummertime = TimeZoneInfo.Local.IsDaylightSavingTime(thisTime);
+                double currentTime;
+                if (isSummertime)
+                    currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds + 3600;
+                else
+                    currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds;
                 try
                 {
                     connIfx.Open();
@@ -76,6 +84,7 @@ namespace SUTI_svc
                         {
                             ct.CommandType = CommandType.Text;
                             ct.CommandText = "select distinct cl_nbr, cl_status, cl_extended_type, cl_due_date_time, tpak_id, rte_id  from calls, vpu_node where cl_fleet='H' and cl_pri_status = 63 and cl_due_date_time > 0 and cl_drv_id = 0 and cl_status='ODOTTAA' and cl_nbr=tpak_id order by cl_due_date_time";
+                            //ct.CommandText = "select distinct cl_nbr, cl_status, cl_extended_type, cl_due_date_time, tpak_id, rte_id  from calls, vpu_node where cl_fleet='H' and cl_due_date_time > " + (currentTime - 10800) + " and cl_nbr=tpak_id order by cl_due_date_time";
                             System.Diagnostics.Debug.WriteLine(ct.CommandText);
                             using (OdbcDataReader rdr = ct.ExecuteReader())
                             {
@@ -169,16 +178,17 @@ namespace SUTI_svc
                         }
                         else if (theMsg.msgType.Equals("5020")) // Location request
                         {
-                            DateTime requestTime = (DateTime)de.Key;  // time that location request received
-                            DateTime thisTime = DateTime.Now;
-                            bool isSummertime = TimeZoneInfo.Local.IsDaylightSavingTime(thisTime);
-                            double currentTime;
-                            if (isSummertime)
-                                currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds + 3600;
-                            else
-                                currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds;
+                            msgRemoveList.Add(de);
+                            //DateTime requestTime = (DateTime)de.Key;  // time that location request received
+                            //DateTime thisTime = DateTime.Now;
+                            //bool isSummertime = TimeZoneInfo.Local.IsDaylightSavingTime(thisTime);
+                            //double currentTime;
+                            //if (isSummertime)
+                            //    currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds + 3600;
+                            //else
+                            //    currentTime = (DateTime.Now - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds;
                             
-                            System.Diagnostics.Debug.WriteLine("Time difference: " + ((thisTime - requestTime).TotalSeconds).ToString());
+                            //System.Diagnostics.Debug.WriteLine("Time difference: " + ((thisTime - requestTime).TotalSeconds).ToString());
                             //Not operational message
                             //_7031Response resp = new _7031Response(smsg, theMsg, theMsg.idMsg.id, Int32.Parse(Application["msgCount"].ToString()));
                             //resp.ReplyNotOperational(theMsg);
@@ -201,13 +211,13 @@ namespace SUTI_svc
                                     dtDateTime = dtDateTime.AddSeconds(gpsTime);
                             
                                 //System.Diagnostics.Debug.WriteLine("Now: " + thisTime.ToString() + " Vehicle: " + gpsTime);
-                                if ((thisTime - dtDateTime).TotalSeconds < 60)
-                                {
+                                //if ((thisTime - dtDateTime).TotalSeconds < 60)
+                                //{
                                     LLUtm llutm = new LLUtm();
                                     llutm.UTMtoLL(0, (double)utmNorthing, (double)utmEasting, out gpsLat, out gpsLon);
                                     LocationResponse locationResponse = new LocationResponse(smsg, theMsg, theMsg.idMsg.id, Int32.Parse(Application["msgCount"].ToString()));
                                     locationResponse.ReplyLocation(theMsg, gpsLat, gpsLon);
-                                }
+                                //}
                                 msgRemoveList.Add(de);
                             }
                             
@@ -238,23 +248,23 @@ namespace SUTI_svc
                         
                         try
                         {
-                            if (om.due_date_time - currentTime < 2100)  // 35 minutes?
-                            {
+                            //if (om.due_date_time - currentTime < 2100)  // 35 minutes?
+                            //{
                                 CheckOrderStatus(om);
                                 ++countChecked;
                                 log.InfoFormat("Checking order " + om.tpak_id + " status " + om.orderStatus + " veh_nbr " + om.veh_nbr);
                                 if (currentTime - om.due_date_time > 10800) // more than 3 hours old
                                     removeList.Add(de);
-                            }
+                            //}
                             ++count;
                             //log.InfoFormat("Checking order " + om.tpak_id + " status " + om.orderStatus + " veh_nbr " + om.veh_nbr);
 
                             if (om.orderStatus == OrderMonitor.CallStatus.CANCELED)
                             {
-                                // SEND ORDER REJECT 2002
+                                // SEND ORDER REJECT REQUEST (New message Jan 13 2016 2005
                                 OrderKELAReject or = new OrderKELAReject(om.kela_id, om.tpak_id, om.inSUTImsg,
                                     Int32.Parse(Application["msgCount"].ToString()));
-                                or.ReplyOrderCancel();
+                                or.ReplyOrderRequestCancel();
                                 removeList.Add(de);
                             }
                             else if ((om.orderStatus == OrderMonitor.CallStatus.PICKUP) && (!om.bSentPickup))
@@ -262,7 +272,8 @@ namespace SUTI_svc
                                 PickupConfirm pc = new PickupConfirm(om.kela_id, om.veh_nbr, om.tpak_id,om.inSUTImsg,
                                     Int32.Parse(Application["msgCount"].ToString()));
                                 om.bSentPickup = true;
-                                pc.ReplyPickupConfirm();
+                                if (!restart)
+                                    pc.ReplyPickupConfirm();
 
                             }
                             else if ((om.orderStatus == OrderMonitor.CallStatus.ASSIGNED || om.orderStatus == OrderMonitor.CallStatus.PICKUP) &&
@@ -274,7 +285,8 @@ namespace SUTI_svc
                                     om.inSUTImsg,
                                     Int32.Parse(Application["msgCount"].ToString()));
                                 om.bSentAccept = true;
-                                dc.ReplyDispatchConfirm();
+                                if (!restart)
+                                    dc.ReplyDispatchConfirm();
                                 //okr.SendOrderKELAReject(this.inSUTImsg);
                             }
                             else if ((om.orderStatus == OrderMonitor.CallStatus.COMPLETE))
@@ -293,6 +305,7 @@ namespace SUTI_svc
                               
                     }
                     log.Info("Total VPU orders  " + count + " Orders checked " + countChecked);
+                    restart = false;
                     foreach (DictionaryEntry de in removeList)
                         CallHashTable.Remove(de.Key);
 
