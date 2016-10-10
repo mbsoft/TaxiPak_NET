@@ -144,44 +144,6 @@ namespace SUTI_svc
 
             XmlSerializer mySerializer = new XmlSerializer(typeof(SUTI));
 
-
-<<<<<<< HEAD
-            /* PI TEST
-            
-            Byte[] _after = new Byte[28];
-            Int32 _pos = 0;
-
-            PIClient newPISocket;
-            try
-            {
-                newPISocket = new PI_Lib.PIClient();
-            }
-            catch (System.Net.Sockets.SocketException ex)
-            {
-                log.InfoFormat("error on PI socket {0}", ex.Message);
-                return;
-            }
-            newPISocket.SetType(MessageTypes.PI_CUSTOMER_ZONE);
-            String latitude = "60.1749869"; String longitude = "24.9384835";
-            PI_CUSTOMER_ZONE myCustomerZone = new PI_CUSTOMER_ZONE();
-
-            myCustomerZone.latitude = latitude.ToCharArray();
-            myCustomerZone.longitude = longitude.ToCharArray();
-
-            newPISocket.sendBuf = myCustomerZone.ToByteArray();
-
-            newPISocket.SendMessage();
-            byte[] returnedBytes = new byte[512];
-
-            returnedBytes = newPISocket.ReceiveMessage();
-            PI_CUSTOMER_ZONE.Deserialize(ref myCustomerZone, returnedBytes);
-
-            newPISocket.CloseMe();
-            System.Diagnostics.Debug.WriteLine("Customer is in zone - " + new string(myCustomerZone.zone));
-            // END TEST */
-
-=======
->>>>>>> e0d5dbc86e346f7519d6cc506abe86dedcb8a366
             try
             {
                 XPathNavigator nav;
@@ -702,10 +664,6 @@ namespace SUTI_svc
                                         {
                                             veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
                                             veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
-                                        }
-                                        else if (idAttr.idAttribute.id.Equals("1600")) // EB 8H
-                                        {
-                                            veh_attr = "EKEEEEEKEEEEEEEEEEEEEEEEEEEEEEEE";
                                         }
 
                                     }
