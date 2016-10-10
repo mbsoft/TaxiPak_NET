@@ -46,61 +46,6 @@ namespace SUTI_svc
         
         PI_Lib.PIClient myPISocket;
 
-        private string NomCity(string lng, string lat)
-        {
-            try
-            {
-                log.InfoFormat("HTD->NOM ");
-                //WebRequest request = WebRequest.Create("http://10.100.113.33:8202/default.aspx");
-            
-                WebRequest request = WebRequest.Create("http://ec2-54-149-181-158.us-west-2.compute.amazonaws.com/nominatim/reverse.php?format=json&lat=" 
-                    + lat + "&lon=" + lng );
-                request.Credentials = CredentialCache.DefaultCredentials;
-                ((HttpWebRequest)request).UserAgent = "ASP.NET from HTD KELA SVC";
-                ((HttpWebRequest)request).KeepAlive = false;
-                ((HttpWebRequest)request).Timeout = System.Threading.Timeout.Infinite;
-                ((HttpWebRequest)request).ReadWriteTimeout = System.Threading.Timeout.Infinite;
-                ((HttpWebRequest)request).ProtocolVersion = HttpVersion.Version10;
-                ((HttpWebRequest)request).AllowWriteStreamBuffering = false;
-
-                request.Method = "GET";
-                request.ContentType = "application/json";
-
-                // Response
-                WebResponse resp = request.GetResponse();
-                StreamReader rdr = new StreamReader(resp.GetResponseStream());
-                //log.InfoFormat("HUT->HTD " + rdr.ReadToEnd());
-                String outCity = rdr.ReadToEnd().Trim();
-
-
-                rdr.Close();
-                resp.Close();
-                JObject result = JObject.Parse(outCity);
-                if (result == null)
-                    return null;
-                JObject address = (JObject)result["address"];
-                if (address == null)
-                    return null;
-                if ((string)address["city"] != null)
-                    return (string)address["city"];
-                else if ((string)address["town"] != null)
-                    return (string)address["town"];
-                else
-                    return null;
-
-                
-            }
-            catch (WebException exc)
-            {
-                log.InfoFormat("Error with NOM lookup - {0}", exc.Message);
-                return null;
-            }
-            catch (ProtocolViolationException exc)
-            {
-                log.InfoFormat("Error with NOM lookup - {0}" + exc.Message);
-                return null;
-            }
-        }
 
         private string CityTranslate(string AdCity)
         {
@@ -199,6 +144,41 @@ namespace SUTI_svc
 
             XmlSerializer mySerializer = new XmlSerializer(typeof(SUTI));
 
+
+            /* PI TEST
+            
+            Byte[] _after = new Byte[28];
+            Int32 _pos = 0;
+
+            PIClient newPISocket;
+            try
+            {
+                newPISocket = new PI_Lib.PIClient();
+            }
+            catch (System.Net.Sockets.SocketException ex)
+            {
+                log.InfoFormat("error on PI socket {0}", ex.Message);
+                return;
+            }
+            newPISocket.SetType(MessageTypes.PI_CUSTOMER_ZONE);
+            String latitude = "60.1749869"; String longitude = "24.9384835";
+            PI_CUSTOMER_ZONE myCustomerZone = new PI_CUSTOMER_ZONE();
+
+            myCustomerZone.latitude = latitude.ToCharArray();
+            myCustomerZone.longitude = longitude.ToCharArray();
+
+            newPISocket.sendBuf = myCustomerZone.ToByteArray();
+
+            newPISocket.SendMessage();
+            byte[] returnedBytes = new byte[512];
+
+            returnedBytes = newPISocket.ReceiveMessage();
+            PI_CUSTOMER_ZONE.Deserialize(ref myCustomerZone, returnedBytes);
+
+            newPISocket.CloseMe();
+            System.Diagnostics.Debug.WriteLine("Customer is in zone - " + new string(myCustomerZone.zone));
+            // END TEST */
+
             try
             {
                 XPathNavigator nav;
@@ -288,6 +268,7 @@ namespace SUTI_svc
                             {
                                 if (myReader.Read())  // route exists
                                 {
+                                    log.InfoFormat("Order update detected. {0}", rteID);
                                     // July 2015 - start supporting UPDATE operations
                                     int tpak_id = 0;
                                     tpak_id = myReader.GetInt32(2);
@@ -295,6 +276,10 @@ namespace SUTI_svc
 
                                     myReader.Close();
                                     connIfx.Close();
+                                    lock (Global.lockObject)
+                                    {
+                                        Global.MsgHashTable.Add(theMsg.idMsg.id, smsg);
+                                    }
                                     Response.Filter = new HDIResponseFilter(Response.Filter);
                                     Response.Write(myOrderKELA.QuickReply());
                                     return;
@@ -357,36 +342,52 @@ namespace SUTI_svc
                         {
 
                         }
-                        PI_CANCEL_CALL canxCall = new PI_CANCEL_CALL();
-                        try
-                        {
-                            myPISocket = new PI_Lib.PIClient();
-                            log.InfoFormat("<-- Successful PI socket connection");
-                        }
-                        catch (System.Net.Sockets.SocketException ex)
-                        {
-                            log.InfoFormat("Error on PI socket ({0})", ex.Message);
-                            return;
-                        }
-                        myPISocket.SetType(MessageTypes.PI_CANCEL_CALL);
-                        myPISocket.sendBuf = canxCall.ToByteArray(tpak_id);
-                        try
-                        {
-                            log.InfoFormat("Cancelling TaxiPak order {0}", tpak_id.ToString());
-                            myPISocket.SendMessage();
-                            myPISocket.ReceiveMessage();
-                            canxCall.Deserialize(myPISocket.recvBuf);
-                            myPISocket.CloseMe();
-                        }
-                        catch (Exception exc)
-                        {
-                            log.InfoFormat("<--- error on PI socket send " + exc.Message);
-                            return;
-                        }
                         lock (Global.lockObject)
                         {
+                            PI_CANCEL_CALL canxCall = new PI_CANCEL_CALL();
+                            try
+                            {
+                                myPISocket = new PI_Lib.PIClient();
+                                log.InfoFormat("<-- Successful PI socket connection");
+                            }
+                            catch (System.Net.Sockets.SocketException ex)
+                            {
+                                log.InfoFormat("Error on PI socket ({0})", ex.Message);
+                                return;
+                            }
+                            myPISocket.SetType(MessageTypes.PI_CANCEL_CALL);
+                            myPISocket.sendBuf = canxCall.ToByteArray(tpak_id);
+                            try
+                            {
+                                log.InfoFormat("Cancelling TaxiPak order {0}", tpak_id.ToString());
+                                myPISocket.SendMessage();
+                                myPISocket.ReceiveMessage();
+                                canxCall.Deserialize(myPISocket.recvBuf);
+                                myPISocket.CloseMe();
+                            }
+                            catch (Exception exc)
+                            {
+                                log.InfoFormat("<--- error on PI socket send " + exc.Message);
+                                return;
+                            }
+
                             Global.MsgHashTable.Add(theMsg.idMsg.id, smsg);
+
+                            if (tpak_id.ToString().Length > 0)
+                            {
+                                foreach (DictionaryEntry de in Global.CallHashTable)
+                                {
+                                    OrderMonitor om = (OrderMonitor)de.Key;
+                                    if (om.tpak_id.Equals(tpak_id.ToString()))
+                                    {
+                                        log.InfoFormat("--- found call to remove from monitoring " + tpak_id.ToString());
+                                        Global.CallHashTable.Remove(de.Key);
+                                        break;
+                                    }
+                                }
+                            }
                         }
+
                         Response.Filter = new HDIResponseFilter(Response.Filter);
                         Response.Write(myOrderCancel.QuickReply());
                     }
@@ -593,6 +594,7 @@ namespace SUTI_svc
         private void UpdateOrderHandler(order theOrder, OrderKELA myOrderKELA, SUTI smsg, SUTIMsg theMsg, int tpak_id)
         {
             String rteID = theOrder.idOrder.id;
+            PI_UPDATE_CALL updateCall = new PI_UPDATE_CALL();
 
             // Check whether order is still open. If not, send order reject 2002 message
             OdbcConnection connIfx = new OdbcConnection(ConfigurationSettings.AppSettings.Get("MadsODBC"));
@@ -605,16 +607,18 @@ namespace SUTI_svc
                 {
                     if (myReader.Read())
                     {
-                        if (myReader.GetString(0).Trim().Equals("PERUTTU") || myReader.GetString(0).Trim().Equals("VALMIS"))
-                        {
+                        //if (myReader.GetString(0).Trim().Equals("PERUTTU") || myReader.GetString(0).Trim().Equals("VALMIS"))
+                        //{
                             // SEND ORDER REJECT 2002
-                            OrderKELAReject or = new OrderKELAReject(rteID, "0000", smsg,
-                                Int32.Parse(Application["msgCount"].ToString()));
-                            Application["msgCount"] = Convert.ToInt32(Application["msgCount"]) + 1;
-                            or.ReplyOrderCancel();
-                        }
-                        else // update the DB (calls and kela_node)
+                        //    log.InfoFormat("Order update received but order cancelled already {0}", rteID);
+                        //    OrderKELAReject or = new OrderKELAReject(rteID, "0000", smsg,
+                        //        Int32.Parse(Application["msgCount"].ToString()));
+                        //    Application["msgCount"] = Convert.ToInt32(Application["msgCount"]) + 1;
+                        //    or.ReplyOrderCancel();
+                        //}
+                        //else // update the DB (calls and kela_node)
                         {
+                            log.InfoFormat("Order update received. Proceeding with node update {0}", rteID);
                             List<routeNode> rteList = theOrder.route;
                             resourceType ro = theOrder.resourceOrder;
                             string from_addr_city = String.Empty;
@@ -638,31 +642,63 @@ namespace SUTI_svc
                                     {
                                         if (idAttr.idAttribute.id.Equals("1618"))  //EB
                                         {
-                                            veh_attr = "EEEEEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
+                                            veh_attr = veh_attr.Remove(7, 1).Insert(7, "K");
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            //veh_attr = "EEEEEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
                                         }
                                         else if (idAttr.idAttribute.id.Equals("1601"))  //EB,FA
                                         {
-                                            veh_attr = "EEEKEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
+                                            veh_attr = veh_attr.Remove(3, 1).Insert(3, "K");
+                                            veh_attr = veh_attr.Remove(7, 1).Insert(7, "K");
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            //veh_attr = "EEEKEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
                                         }
                                         else if (idAttr.idAttribute.id.Equals("1619"))  //8H
                                         {
-                                            veh_attr = "EKEEEEEEEEEEEEEEEEEEEEEEEKEEKEEE";
+                                            veh_attr = veh_attr.Remove(1, 1).Insert(1, "K");
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            //veh_attr = "EKEEEEEEEEEEEEEEEEEEEEEEEKEEKEEE";
                                         }
                                         else if (idAttr.idAttribute.id.Equals("1614"))  //IN
                                         {
-                                            veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
+                                            veh_attr = veh_attr.Remove(30, 1).Insert(30, "K");
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            //veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
                                         }
                                         else if (idAttr.idAttribute.id.Equals("1615"))  //IN
                                         {
-                                            veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
+                                            veh_attr = veh_attr.Remove(30, 1).Insert(30, "K");
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            //veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
                                         }
                                         else if (idAttr.idAttribute.id.Equals("1613"))  //PA-19
                                         {
-                                            veh_attr = "EEEEEEEEEEEEEEEEEEKEEEEEEKEEKEEE";
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            veh_attr = veh_attr.Remove(18, 1).Insert(18, "K");
+                                            // = "EEEEEEEEEEEEEEEEEEKEEEEEEKEEKEEE";
                                         }
                                         else if (idAttr.idAttribute.id.Equals("1640")) // PT (28)
                                         {
-                                            veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEKKEEE";
+                                            veh_attr = veh_attr.Remove(27, 1).Insert(27, "K");
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                                            //veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEKKEEE";
+                                        }
+                                        else if (idAttr.idAttribute.id.Equals("1600")) //TEST - set mutually exclusive attrs
+                                        {
+                                            veh_attr = veh_attr.Remove(7, 1).Insert(7, "K");
+                                            veh_attr = veh_attr.Remove(1, 1).Insert(1, "K");
+                                        }
+                                        else // catch all for undefined attribute groups set HU/LA
+                                        {
+                                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
                                         }
 
                                     }
@@ -679,6 +715,14 @@ namespace SUTI_svc
                                             veh_attr = "EK" + veh_attr.Substring(2, 30);
                                     }
                                 }
+
+                                updateCall.car_attrib = veh_attr.ToCharArray();
+                                updateCall.driver_attrib = drv_attr.ToCharArray();
+                                if (ro.vehicle.idVehicle.id != null)
+                                    updateCall.car_number = ro.vehicle.idVehicle.id.ToCharArray();
+                                else
+                                    updateCall.car_number = String.Empty.ToCharArray();
+
                             }
                             int pickupCount = 0;
                             int totalCount = 0;
@@ -738,7 +782,7 @@ namespace SUTI_svc
                             myOrderKELA.UpdateKelaOrderDB(smsg, theMsg, theMsg.idMsg.id, tpak_id);
                            
                             // db update CALLS record
-                            PI_UPDATE_CALL updateCall = new PI_UPDATE_CALL();
+                            
                             PIClient newPISocket;
                             try
                             {
@@ -752,8 +796,12 @@ namespace SUTI_svc
                             newPISocket.SetType(MessageTypes.PI_UPDATE_CALL);
                             updateCall.call_number = tpak_id.ToString().ToCharArray();
                             updateCall.from_addr_city = from_addr_city.ToCharArray();
-                            updateCall.from_addr_street = from_addr_street.ToCharArray();
+                            if (from_addr_street.Length > 20)
+                                updateCall.from_addr_street = from_addr_street.ToCharArray(0, 20);
+                            else
+                                updateCall.from_addr_street = from_addr_street.ToCharArray();
                             updateCall.from_addr_number = from_addr_number.ToString().ToCharArray();
+                            updateCall.to_addr_street = to_addr_street.ToCharArray();
                             updateCall.due_date = due_date.ToCharArray();
                             updateCall.due_time = due_time.ToCharArray();
                             updateCall.fleet = 'H';
@@ -789,8 +837,19 @@ namespace SUTI_svc
                 System.Diagnostics.Debug.WriteLine(exc.Message);
                 connIfx.Close(); 
             }
-            connIfx.Close(); 
+            connIfx.Close();
 
+            myOrderKELA.LoadKelaOrderDB(smsg, theMsg, theMsg.idMsg.id, tpak_id);
+            myOrderKELA.CallNbr = tpak_id.ToString();
+            lock (Global.lockObject)
+            {
+
+                SUTI_svc.order od = ((SUTI_svc.order)theMsg.Item);
+                OrderMonitor om = new OrderMonitor(smsg, myOrderKELA.CallNbr, od.idOrder.id);
+                om.due_date_time = myOrderKELA._UnixTime;
+                //log.InfoFormat("OrderMonitor created: {0} - {1}", myOrderKELA.CallNbr, myCall.call_number);
+                Global.CallHashTable.Add(om, myOrderKELA.CallNbr);
+            }
         }
 
         private void NewOrderHandler(order theOrder, OrderKELA myOrderKELA, SUTI smsg, SUTIMsg theMsg)
@@ -815,31 +874,63 @@ namespace SUTI_svc
                     {
                         if (idAttr.idAttribute.id.Equals("1618"))  //EB
                         {
-                            veh_attr = "EEEEEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
-                        }
+                            veh_attr = veh_attr.Remove(7, 1).Insert(7, "K");
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            //veh_attr = "EEEEEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
+                        } 
                         else if (idAttr.idAttribute.id.Equals("1601"))  //EB,FA
                         {
-                            veh_attr = "EEEKEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
+                            veh_attr = veh_attr.Remove(3, 1).Insert(3, "K");
+                            veh_attr = veh_attr.Remove(7, 1).Insert(7, "K");
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            //veh_attr = "EEEKEEEKEEEEEEEEEEEEEEEEEKEEKEEE";
                         }
                         else if (idAttr.idAttribute.id.Equals("1619"))  //8H
                         {
-                            veh_attr = "EKEEEEEEEEEEEEEEEEEEEEEEEKEEKEEE";
+                            veh_attr = veh_attr.Remove(1, 1).Insert(1, "K");
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            //veh_attr = "EKEEEEEEEEEEEEEEEEEEEEEEEKEEKEEE";
                         }
                         else if (idAttr.idAttribute.id.Equals("1614"))  //IN
                         {
-                            veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
+                            veh_attr = veh_attr.Remove(30, 1).Insert(30, "K");
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            //veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
                         }
                         else if (idAttr.idAttribute.id.Equals("1615"))  //IN
                         {
-                            veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
+                            veh_attr = veh_attr.Remove(30, 1).Insert(30, "K");
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            //veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEEKEKE";
                         }
                         else if (idAttr.idAttribute.id.Equals("1613"))  //PA-19
                         {
-                            veh_attr = "EEEEEEEEEEEEEEEEEEKEEEEEEKEEKEEE";
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            veh_attr = veh_attr.Remove(18,1).Insert(18,"K"); 
+                            // = "EEEEEEEEEEEEEEEEEEKEEEEEEKEEKEEE";
                         }
                         else if (idAttr.idAttribute.id.Equals("1640")) // PT (28)
                         {
-                            veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEKKEEE";
+                            veh_attr = veh_attr.Remove(27, 1).Insert(27, "K");
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
+                            //veh_attr = "EEEEEEEEEEEEEEEEEEEEEEEEEKEKKEEE";
+                        }
+                        else if (idAttr.idAttribute.id.Equals("1600")) //TEST - set mutually exclusive attrs
+                        {
+                            veh_attr = veh_attr.Remove(7, 1).Insert(7, "K");
+                            veh_attr = veh_attr.Remove(1, 1).Insert(1, "K");
+                        }
+                        else // catch all for undefined attribute groups set HU/LA
+                        {
+                            veh_attr = veh_attr.Remove(25, 1).Insert(25, "K");
+                            veh_attr = veh_attr.Remove(28, 1).Insert(28, "K");
                         }
 
                     }
@@ -859,7 +950,11 @@ namespace SUTI_svc
                 }
                 myCall.car_attrib = veh_attr.ToCharArray();
                 myCall.driver_attrib = drv_attr.ToCharArray();
-                myCall.car_number = Convert.ToInt16(ro.vehicle.idVehicle.id);
+                    if (ro.vehicle.idVehicle != null)
+                    {
+                        if (ro.vehicle.idVehicle.id != null && ro.vehicle.idVehicle.id.Length > 0)
+                            myCall.car_number = Convert.ToInt16(ro.vehicle.idVehicle.id);
+                    }
             }
 
             int pickupCount = 0;
@@ -899,7 +994,10 @@ namespace SUTI_svc
                     }
                     else
                         myCall.from_addr_city = rte.addressNode.community.ToCharArray();
-                    myCall.from_addr_street = rte.addressNode.street.ToUpper().ToCharArray();
+                    if (rte.addressNode.street.Length > 20)
+                        myCall.from_addr_street = rte.addressNode.street.ToUpper().ToCharArray(0, 20);
+                    else
+                        myCall.from_addr_street = rte.addressNode.street.ToUpper().ToCharArray();
                     myCall.from_addr_number = Convert.ToInt32(rte.addressNode.streetNo);
                     // time call or immediate call?
                     List<timesTypeTime> timesList = rte.timesNode;
